@@ -1,7 +1,9 @@
-package toutiao.fake.com.faketoutiao;
+package toutiao.fake.com.faketoutiao.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import toutiao.fake.com.faketoutiao.R;
 
 public class MainActivity extends AppCompatActivity {
 
