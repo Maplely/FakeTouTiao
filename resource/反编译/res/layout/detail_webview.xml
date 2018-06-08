@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.ss.android.detail.feature.detail.view.MyWebViewV9 android:id="@id/detail_webview" android:background="@color/ssxinmian4" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/page_webview_style"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

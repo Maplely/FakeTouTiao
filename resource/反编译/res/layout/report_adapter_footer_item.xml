@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/layout_footer_item" android:background="@color/report_dialog_bg" android:paddingLeft="32.0dip" android:paddingRight="32.0dip" android:layout_width="fill_parent" android:layout_height="44.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="16.0sp" android:textColor="@color/report_item_text_selector" android:gravity="center_vertical" android:id="@id/txt_footer_item" android:layout_width="wrap_content" android:layout_height="44.0dip" android:text="@string/report_dialog_comment_item" />
-    <ImageView android:id="@id/img_footer_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:src="@drawable/all_arrow_unlike_selector" android:rotation="180.0" />
-</LinearLayout>

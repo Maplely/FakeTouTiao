@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/layout_report_root" android:background="@color/report_dialog_bg" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <android.support.v7.widget.RecyclerView android:id="@id/recycler_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="59.0dip" android:layout_marginBottom="48.0dip" />
-    <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="@color/ssxinzi1" android:gravity="center" android:id="@id/txt_detail_menu_title" android:layout_width="fill_parent" android:layout_height="44.0dip" android:layout_marginTop="-49.0dip" android:layout_marginBottom="5.0dip" android:maxLines="1" android:layout_alignTop="@id/recycler_view" />
-    <TextView android:textSize="17.0sp" android:textColor="@color/detail_menu_selector" android:gravity="center" android:id="@id/txt_cancel" android:background="@color/ssxinmian4" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginBottom="-48.0dip" android:text="@string/cancel" android:layout_alignBottom="@id/recycler_view" />
-</RelativeLayout>

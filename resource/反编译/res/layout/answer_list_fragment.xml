@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/root_view" android:background="@color/ssxinmian3" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ss="http://schemas.android.com/apk/res-auto">
-    <include android:id="@id/wd_title" layout="@layout/wd_public_title" />
-    <com.ss.android.topic.view.ContentPullToToRefreshListView android:id="@id/list" android:background="@null" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/wd_title" style="@style/list_style" />
-    <ImageView android:id="@id/write_answer_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="18.0dip" android:layout_marginBottom="18.0dip" android:src="@drawable/answerlist_write_btn" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
-    <com.bytedance.article.common.ui.LoadingFlashView android:id="@id/empty_load_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true" ss:flash_image_gravity="center" />
-    <FrameLayout android:id="@id/error_root_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/wd_title" android:layout_centerInParent="true" />
-</RelativeLayout>

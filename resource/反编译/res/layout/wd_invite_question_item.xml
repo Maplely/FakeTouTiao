@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/wd_feed_card_margin_horizontal" android:paddingTop="@dimen/wd_feed_card_space" android:paddingRight="@dimen/wd_feed_card_margin_horizontal" android:paddingBottom="@dimen/wd_feed_card_space" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Clickable"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:paddingLeft="2.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/wd_feed_card_space" android:layout_marginRight="@dimen/wd_feed_line_margin_top" android:src="@drawable/wd_dot" />
-    <TextView android:textSize="17.0sp" android:textColor="@color/ssxinzi1" android:ellipsize="end" android:id="@id/wd_invite_ques_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:includeFontPadding="false" android:lineSpacingExtra="0.0dip" />
-</LinearLayout>

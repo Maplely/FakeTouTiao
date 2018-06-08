@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.ss.android.article.base.feature.message.MessageTabStrip android:textSize="17.0sp" android:id="@id/tabs" android:layout_width="fill_parent" android:layout_height="44.0dip" app:pstsIndicatorColor="@color/ssxinxian2" app:pstsDividerColor="@color/transparent" app:pstsIndicatorHeight="2.0dip" app:pstsUnderlineHeight="0.0dip" app:pstsDividerPadding="0.0dip" app:pstsTabPaddingLeftRight="22.0dip" app:pstsTabBackground="@drawable/transparent" app:pstsIndicatorPadding="22.0dip" />
-    <View android:layout_gravity="bottom" android:id="@id/divide_line" android:background="@color/ssxinxian7" android:layout_width="fill_parent" android:layout_height="0.5dip" />
-    <TextView android:id="@id/back" style="@style/back_view" />
-</FrameLayout>

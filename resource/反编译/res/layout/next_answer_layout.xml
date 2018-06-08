@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:id="@id/next_answer_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="16.0sp" android:textColor="@color/ssxinzi5_selector" android:gravity="center_vertical" android:id="@id/answer_num_tv" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/all_answer_num" />
-    <TextView android:textSize="16.0sp" android:textColor="@color/next_answer_color" android:gravity="center_vertical" android:id="@id/next_answer_tv" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/next_answer" android:layout_alignParentRight="true" />
-    <View android:id="@id/divider_line" android:background="@color/ssxinxian1" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_alignParentBottom="true" />
-</merge>

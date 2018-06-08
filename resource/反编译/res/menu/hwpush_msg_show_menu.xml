@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:icon="@drawable/hwpush_ic_toolbar_back" android:id="@id/hwpush_menu_back" android:title="@string/hwpush_goback" android:showAsAction="ifRoom" />
-    <item android:icon="@drawable/hwpush_ic_toolbar_advance" android:id="@id/hwpush_menu_forward" android:title="@string/hwpush_forward" android:showAsAction="ifRoom" />
-    <item android:icon="@drawable/hwpush_ic_toolbar_refresh" android:id="@id/hwpush_menu_refresh" android:title="@string/hwpush_refresh" android:showAsAction="ifRoom" />
-    <item android:icon="@drawable/hwpush_ic_toolbar_collect" android:id="@id/hwpush_menu_collect" android:title="@string/hwpush_collect" android:showAsAction="ifRoom" />
-</menu>

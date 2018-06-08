@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:background="@color/ssxinmian3" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListView android:scrollbarStyle="outsideOverlay" android:id="@id/content_listview" android:background="@color/update_user_list_item_bg_color" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/publish_topic_layout_min_height" style="@style/ss_digg_list" />
-    <TextView android:textSize="15.0sp" android:textColor="@color/ssxinzi3" android:gravity="center" android:id="@id/empty_hint" android:background="@color/transparent" android:paddingTop="50.0dip" android:paddingBottom="70.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/empty_digg_hint" />
-    <ProgressBar android:layout_gravity="center" android:id="@id/progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminateOnly="true" />
-</FrameLayout>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:background="@drawable/user_invite_card_bg" android:layout_width="142.0dip" android:layout_height="180.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/user_avatar" android:layout_width="@dimen/wd_invite_image_width" android:layout_height="@dimen/wd_invite_image_width" android:layout_marginTop="15.0dip" android:layout_centerHorizontal="true" style="@style/wenda_avatar" />
-    <TextView android:textSize="14.0sp" android:textColor="@color/ssxinzi1" android:gravity="center" android:id="@id/user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="6.0dip" android:layout_marginRight="15.0dip" android:maxLines="1" android:layout_below="@id/user_avatar" android:layout_centerHorizontal="true" />
-    <TextView android:textSize="12.0sp" android:textColor="@color/ssxinzi3" android:gravity="center" android:id="@id/user_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="6.0dip" android:layout_marginRight="15.0dip" android:maxHeight="36.0dip" android:maxLines="2" android:layout_below="@id/user_name" android:layout_centerHorizontal="true" />
-    <TextView android:textSize="14.0sp" android:textColor="@color/add_channel_text_color" android:gravity="center" android:id="@id/invite_btn" android:background="@drawable/quick_ask_bg" android:layout_width="52.0dip" android:layout_height="28.0dip" android:layout_marginBottom="15.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
-</RelativeLayout>

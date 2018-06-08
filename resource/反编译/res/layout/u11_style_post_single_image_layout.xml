@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.ss.android.article.common.NightModeAsyncImageView android:layout_width="fill_parent" android:layout_height="fill_parent" fresco:roundingBorderPadding="1.0px" fresco:roundingBorderWidth="1.0px" fresco:border_color="@color/ssxinxian1"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:fresco="http://schemas.android.com/apk/res-auto" />

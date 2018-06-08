@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:fresco="http://schemas.android.com/apk/res-auto">
-    <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/double_style_image0" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" fresco:roundingBorderPadding="1.0px" fresco:roundingBorderWidth="1.0px" fresco:border_color="@color/ssxinxian1" />
-    <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/double_style_image1" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:layout_weight="1.0" fresco:roundingBorderPadding="1.0px" fresco:roundingBorderWidth="1.0px" fresco:border_color="@color/ssxinxian1" />
-</merge>
