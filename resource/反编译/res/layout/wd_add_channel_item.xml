@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bytedance.article.common.ui.FeedItemRootLinerLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:fresco="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/top_padding" android:background="@color/ssxinmian3" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/wd_feed_card_space_new" />
+    <LinearLayout android:orientation="vertical" android:id="@id/wd_add_channel_item" android:paddingTop="@dimen/wd_feed_line_margin_top" android:paddingBottom="@dimen/wd_feed_line_margin_top" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Clickable">
+        <RelativeLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/wd_feed_card_margin_horizontal">
+            <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/wd_channel_icon" android:background="@drawable/wd_image_border" android:layout_width="@dimen/wd_add_channel_icon_size" android:layout_height="@dimen/wd_add_channel_icon_size" android:layout_alignParentLeft="true" android:layout_centerVertical="true" fresco:actualImageScaleType="centerCrop" />
+            <TextView android:textSize="17.0sp" android:textColor="@color/item_text" android:id="@id/wd_channel_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/wd_feed_card_space" android:includeFontPadding="false" android:layout_toLeftOf="@id/wd_channel_add" android:layout_toRightOf="@id/wd_channel_icon" android:layout_centerVertical="true" android:lineSpacingExtra="0.0dip" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/add_channel_text_color" android:gravity="center_vertical" android:id="@id/wd_channel_add" android:background="@drawable/quick_ask_bg" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="28.0dip" android:text="@string/wd_recommend_add" android:layout_toLeftOf="@id/wd_channel_close" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/wd_channel_close" android:padding="@dimen/wd_feed_card_margin_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ask_icon_close" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View android:id="@id/bottom_padding" android:background="@color/ssxinmian3" android:layout_width="fill_parent" android:layout_height="@dimen/wd_feed_card_space_new" />
+</com.bytedance.article.common.ui.FeedItemRootLinerLayout>

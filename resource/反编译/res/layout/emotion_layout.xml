@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:id="@id/layout_admire" android:background="@drawable/admire_background_selector" android:layout_width="107.0dip" android:layout_height="37.0dip">
+            <TextView android:textSize="12.0sp" android:textColor="@color/ssxinzi4" android:gravity="center_vertical" android:id="@id/txt_admire" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/praise" android:drawableLeft="@drawable/details_admire_icon" android:drawablePadding="4.0dip" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:id="@id/layout_like" android:background="@drawable/like_background_selector" android:layout_width="107.0dip" android:layout_height="37.0dip">
+            <com.bytedance.article.common.ui.DiggLayout android:id="@id/detail_like" android:layout_width="wrap_content" android:layout_height="wrap_content" app:type="listType" app:childGravity="centerVertical" app:textGravity="centerVertical" app:dl_txtsize="12.0sp" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:id="@id/layout_dislike_report" android:background="@drawable/dislike_report_background_selector" android:layout_width="107.0dip" android:layout_height="37.0dip">
+            <TextView android:textSize="12.0sp" android:textColor="@color/ssxinzi14" android:gravity="center_vertical" android:id="@id/txt_report" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/article_dislike" android:drawableLeft="@drawable/details_dislike_icon" android:drawablePadding="4.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/admire_users_layout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14.0dip">
+        <LinearLayout android:orientation="horizontal" android:id="@id/user_avatar_container" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/ssxinzi14" android:id="@id/txt_admire_user_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="9.0dip" />
+    </LinearLayout>
+</LinearLayout>

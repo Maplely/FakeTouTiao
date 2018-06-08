@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_gravity="bottom" android:id="@id/layout_user_info" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/img_user_info_space" android:layout_width="fill_parent" android:layout_height="wrap_content" app:viewAspectRatio="1.43" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/layout_count" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dip" android:layout_marginBottom="23.0dip" android:layout_alignBottom="@id/img_user_info_space">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/layout_following" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="16.0sp" android:id="@id/txt_following_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.9" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/mine_info_title_color" android:id="@id/txt_following_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mine_tab_followings_title" android:alpha="0.5" />
+            </LinearLayout>
+            <View android:id="@id/v_user_info_divider_one" android:background="@color/mine_info_divider_color" android:layout_width="0.5dip" android:layout_height="38.0dip" />
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/layout_followers" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="16.0sp" android:id="@id/txt_followers_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.9" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/mine_info_title_color" android:id="@id/txt_followers_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mine_tab_followers_title" android:alpha="0.5" />
+            </LinearLayout>
+            <View android:id="@id/v_user_info_divider_two" android:background="@color/mine_info_divider_color" android:layout_width="0.5dip" android:layout_height="38.0dip" />
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/layout_recent_visitors" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="16.0sp" android:id="@id/txt_recent_visitors_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.9" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/mine_info_title_color" android:id="@id/txt_recent_visitors_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mine_tab_visitors_title" android:alpha="0.5" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/layout_user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:layout_above="@id/layout_count" android:layout_centerHorizontal="true">
+            <TextView android:textSize="16.0sp" android:textColor="@color/ssxinzi10" android:ellipsize="end" android:gravity="center" android:id="@id/txt_user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+            <ImageView android:id="@id/img_mark_v" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="1.0dip" android:src="@drawable/all_newv" />
+            <ImageView android:id="@id/img_toutiaohao" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:src="@drawable/newtoutiaohao_details1" />
+        </LinearLayout>
+        <ImageView android:id="@id/img_header_click_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:src="@drawable/name_arrow" android:layout_toRightOf="@id/layout_user_name" android:layout_alignTop="@id/layout_user_name" android:layout_alignBottom="@id/layout_user_name" />
+        <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/img_avatar" android:layout_width="@dimen/my_page_max_avatar_size" android:layout_height="@dimen/my_page_max_avatar_size" android:layout_above="@id/layout_user_name" android:layout_centerHorizontal="true" app:actualImageScaleType="centerCrop" app:placeholderImage="@drawable/big_defaulthead_head" app:placeholderImageScaleType="centerCrop" app:roundAsCircle="true" app:roundingBorderColor="@color/ssxinxian12" app:roundingBorderPadding="1.0dip" app:roundingBorderWidth="1.0dip" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_gravity="bottom" android:id="@id/layout_login" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/img_login_space" android:layout_width="fill_parent" android:layout_height="wrap_content" app:viewAspectRatio="1.42" />
+        <TextView android:textSize="14.0sp" android:textColor="#7fffffff" android:id="@id/tv_register" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="48.0dip" android:text="@string/mine_login_hint" android:includeFontPadding="false" android:layout_alignBottom="@id/img_login_space" android:layout_centerHorizontal="true" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/login_icon_wrapper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="37.0dip" android:layout_above="@id/tv_register">
+            <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="105.0" />
+            <ImageView android:id="@id/img_mobile_btn" android:layout_width="66.0dip" android:layout_height="wrap_content" android:src="@drawable/mine_login_phone" />
+            <Space android:id="@id/weixin_layout_space" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="72.0" />
+            <ImageView android:id="@id/img_weixin_btn" android:layout_width="66.0dip" android:layout_height="wrap_content" android:src="@drawable/mine_login_weixin" />
+            <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="72.0" />
+            <ImageView android:id="@id/img_qq_btn" android:layout_width="66.0dip" android:layout_height="wrap_content" android:src="@drawable/mine_login_qq" />
+            <Space android:id="@id/weibo_layout_space" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="72.0" />
+            <ImageView android:id="@id/img_weibo_btn" android:visibility="gone" android:layout_width="66.0dip" android:layout_height="wrap_content" android:src="@drawable/mine_login_sina" />
+            <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="34.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/img_more_arrow" android:layout_width="0.0dip" android:layout_height="50.0dip" android:src="@drawable/morelogin_arrow" android:scaleType="centerInside" android:layout_weight="63.0" />
+            <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="8.0" />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

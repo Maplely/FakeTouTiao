@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="t12">12.0sp</dimen>
+    <dimen name="t14">14.0sp</dimen>
+    <dimen name="wd_add_channel_icon_size">45.0dip</dimen>
+    <dimen name="wd_feed_card_margin_horizontal">15.0dip</dimen>
+    <dimen name="wd_feed_card_space">10.0dip</dimen>
+    <dimen name="wd_feed_card_space_new">5.0dip</dimen>
+    <dimen name="wd_feed_image_margin">10.0dip</dimen>
+    <dimen name="wd_feed_large_image_height">185.0dip</dimen>
+    <dimen name="wd_feed_line_margin">13.0dip</dimen>
+    <dimen name="wd_feed_line_margin_top">12.0dip</dimen>
+    <dimen name="wd_feed_small_image_height">57.0dip</dimen>
+    <dimen name="wd_feed_small_image_width">57.0dip</dimen>
+    <dimen name="wd_feed_text_margin">9.0dip</dimen>
+    <dimen name="wd_feed_text_margin_top">6.0dip</dimen>
+    <dimen name="wd_invite_image_width">50.0dip</dimen>
+    <dimen name="wd_invite_recommend_margin">7.0dip</dimen>
+    <dimen name="wd_invite_title_height">40.0dip</dimen>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="52.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/avatar" android:padding="1.0px" android:layout_width="@dimen/update_avatar_size" android:layout_height="@dimen/update_avatar_size" android:layout_marginLeft="15.0dip" android:layout_marginRight="12.0dip" android:layout_centerVertical="true" app:actualImageScaleType="centerCrop" app:placeholderImage="@drawable/big_defaulthead_head" app:placeholderImageScaleType="centerCrop" app:roundAsCircle="true" app:roundingBorderColor="@color/ssxinxian1" app:roundingBorderPadding="1.0px" app:roundingBorderWidth="1.0px" />
+    <RelativeLayout android:orientation="vertical" android:id="@id/info_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:layout_toRightOf="@id/avatar" android:layout_centerVertical="true">
+        <com.ss.android.article.base.ui.PriorityLinearLayout android:id="@id/name_wrapper" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="14.0sp" android:textColor="@color/ssxinzi1" android:ellipsize="end" android:id="@id/nick_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" app:pll_measure_priority="0" app:pll_layout_order="0" />
+            <ImageView android:id="@id/verified_img" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:src="@drawable/all_newv" app:pll_measure_priority="1" app:pll_layout_order="1" />
+            <ImageView android:id="@id/digg_owner" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:src="@drawable/details_original_poster_label" app:pll_measure_priority="2" app:pll_layout_order="2" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/ssxinzi3" android:id="@id/relationship" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:includeFontPadding="false" app:pll_measure_priority="3" app:pll_layout_order="3" />
+        </com.ss.android.article.base.ui.PriorityLinearLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/ssxinzi13" android:ellipsize="end" android:id="@id/description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:singleLine="true" android:layout_below="@id/name_wrapper" />
+    </RelativeLayout>
+</RelativeLayout>

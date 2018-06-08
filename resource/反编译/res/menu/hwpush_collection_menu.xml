@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/hwpush_ic_toolbar_delete" android:id="@id/hwpush_menu_delete" android:title="@string/hwpush_delete" android:showAsAction="ifRoom" />
+    <item android:icon="@drawable/hwpush_ic_toolbar_multiple" android:id="@id/hwpush_menu_selectall" android:title="@string/hwpush_selectall" android:showAsAction="ifRoom" />
+</menu>

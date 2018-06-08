@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ProgressBar android:id="@id/btn_ad_progress_bar" android:visibility="gone" android:layout_width="72.0dip" android:layout_height="28.0dip" style="@style/action_ad_progress_bar" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/ssxinzi6" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/btn_ad_tv" android:layout_width="72.0dip" android:layout_height="28.0dip" android:maxLines="1" />
+</RelativeLayout>

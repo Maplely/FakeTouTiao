@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/container" android:background="@drawable/setting_item_selector" android:layout_height="wrap_content" style="@style/setting_bg_layout"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:setting="http://schemas.android.com/apk/res-auto">
+    <View android:background="@color/cp_bg_line_b" android:layout_width="fill_parent" android:layout_height="@dimen/ds2" android:layout_marginLeft="@dimen/ds30" android:layout_marginRight="@dimen/ds30" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/ll_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ds26" android:layout_marginBottom="@dimen/ds26">
+        <TextView android:textColor="@color/about_tip_color" android:id="@id/text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ds30" android:text="@string/msg_remind" android:layout_weight="1.0" />
+        <TextView android:textSize="@dimen/ds32" android:textColor="@color/cp_cont_b" android:id="@id/tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ds30" android:singleLine="true" />
+        <ImageView android:id="@id/arrow2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ds30" android:src="@drawable/icon_diagnose_ok" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/ds28" android:textColor="@color/cp_link_tip_d" android:id="@id/tv_help" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ds30" android:layout_marginRight="@dimen/ds30" android:layout_marginBottom="@dimen/ds20" />
+</LinearLayout>

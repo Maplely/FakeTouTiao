@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/layout_report_item" android:background="@color/report_dialog_bg" android:paddingLeft="32.0dip" android:paddingRight="32.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0sp" android:textColor="@color/report_item_text_selector" android:gravity="center_vertical" android:id="@id/txt_report_item" android:layout_width="0.0dip" android:layout_height="44.0dip" android:layout_weight="1.0" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/report_item_cancel" android:gravity="center" android:id="@id/txt_cancel" android:layout_width="wrap_content" android:layout_height="44.0dip" android:text="撤销" />
+    </LinearLayout>
+    <View android:id="@id/divider" android:background="@color/report_item_divider_bg" android:layout_width="fill_parent" android:layout_height="0.5dip" />
+</LinearLayout>

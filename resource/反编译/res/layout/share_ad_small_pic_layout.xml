@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:fresco="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/share_ad_layout" android:background="@color/ssxinmian_share_ad" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="77.0dip">
+        <TextView android:textSize="14.0dip" android:textColor="@color/ssxinzi2" android:ellipsize="end" android:id="@id/share_ad_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="22.0dip" android:layout_marginRight="30.0dip" android:maxLines="2" android:includeFontPadding="false" android:layout_toLeftOf="@id/share_ad_pic" android:layout_alignParentLeft="true" android:lineSpacingExtra="21.0dip" android:lineSpacingMultiplier="0.0" />
+        <com.ss.android.image.AsyncImageView android:id="@id/share_ad_pic" android:layout_width="94.0dip" android:layout_height="57.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" fresco:placeholderImage="@color/ssxinmian_share_ad_place_holder" />
+        <ImageView android:id="@id/share_ad_close_btn" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginRight="5.0dip" android:src="@drawable/popup_newclose" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+        <FrameLayout android:id="@id/share_ad_label_wrap" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true">
+            <TextView android:textSize="10.0sp" android:textColor="@color/ssxinzi9" android:gravity="center" android:id="@id/share_ad_label_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:layout_marginBottom="5.0dip" android:text="@string/ad_label_info" android:includeFontPadding="false" />
+        </FrameLayout>
+    </RelativeLayout>
+    <View android:id="@id/share_ad_separate_line" android:background="@color/ssxinxian10" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="1.0px" />
+</merge>

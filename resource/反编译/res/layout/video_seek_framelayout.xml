@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ss.android.mediamaker.video.widget.SeekFrameLayout android:layout_width="fill_parent" android:layout_height="62.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.RecyclerView android:layout_gravity="center" android:id="@id/background_view" android:layout_width="fill_parent" android:layout_height="60.0dip" />
+    <com.ss.android.common.ui.view.AlphaImageView android:layout_gravity="center" android:id="@id/foreground_stub" android:layout_width="fill_parent" android:layout_height="60.0dip" />
+    <com.ss.android.common.view.SquareRelativeLayout android:id="@id/thumb_view_layout" android:background="@drawable/video_cover_thumb_bg" android:layout_width="62.0dip" android:layout_height="62.0dip">
+        <com.ss.android.media.video.widget.VideoView android:id="@id/thumb_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true" />
+    </com.ss.android.common.view.SquareRelativeLayout>
+</com.ss.android.mediamaker.video.widget.SeekFrameLayout>

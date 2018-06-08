@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/ssxinmian4" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbarStyle="outsideOverlay" android:id="@id/scroll_layout" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/add_image_layout" android:overScrollMode="never">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="18.0sp" android:textColor="@color/ssxinzi1" android:id="@id/question_title_tv" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/feed_margin" android:layout_marginTop="15.0dip" android:layout_marginRight="@dimen/feed_margin" android:layout_marginBottom="14.0dip" android:text="问题标题" android:lineSpacingExtra="2.0dip" />
+            <View android:id="@id/divider_line" android:background="@color/ssxinxian1" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="@dimen/feed_margin" android:layout_marginRight="@dimen/feed_margin" android:layout_below="@id/question_title_tv" />
+            <EditText android:textSize="16.0sp" android:textColor="@color/ssxinzi3" android:textColorHint="@color/ssxinzi9" android:gravity="top" android:id="@id/write_content_edittext" android:background="@null" android:paddingLeft="@dimen/feed_margin" android:paddingTop="9.0dip" android:paddingRight="@dimen/feed_margin" android:scrollbars="none" android:clickable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hint="添加问题描述，不少于10个字" android:textCursorDrawable="@drawable/text_cursor_drawable" />
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout android:id="@id/add_image_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/feed_margin" android:layout_above="@id/tool_bar_layout">
+        <com.ss.android.article.base.ui.StickyGridView android:id="@id/add_image_gridview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:listSelector="@color/transparent" android:cacheColorHint="@color/transparent" android:horizontalSpacing="10.0dip" android:stretchMode="columnWidth" android:numColumns="3" android:layout_toLeftOf="@id/text_count_tv" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/ssxinzi2" android:gravity="right" android:id="@id/text_count_tv" android:layout_width="63.0dip" android:layout_height="wrap_content" android:text="100/300" android:layout_alignBottom="@id/add_image_gridview" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/tool_bar_layout" android:background="@color/ssxinmian3" android:layout_width="fill_parent" android:layout_height="44.0dip" android:layout_alignParentBottom="true">
+        <View android:id="@id/tool_bar_top_divider_line" android:background="@color/ssxinxian1" android:layout_width="fill_parent" android:layout_height="0.5dip" />
+        <ImageView android:id="@id/select_image_icon" android:padding="10.0dip" android:layout_width="44.0dip" android:layout_height="44.0dip" android:layout_marginRight="14.0dip" android:src="@drawable/tabbar_picture_bg" android:scaleType="fitXY" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <View android:id="@id/tool_bar_top_bottom_line" android:background="@color/ssxinxian1" android:layout_width="fill_parent" android:layout_height="0.5dip" />
+    </RelativeLayout>
+</RelativeLayout>

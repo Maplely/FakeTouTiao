@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@color/ssxinmian3" android:layout_width="fill_parent" android:layout_height="45.0dip">
+        <View android:background="@color/ssxinxian7" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_alignParentTop="true" />
+        <RelativeLayout android:id="@id/tabbar_icon_view" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageButton android:id="@id/tabbar_keyboard_btn" android:background="@null" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:src="@drawable/tabbar_keyboard_bg" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/selected_image" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="24.0dip" android:src="@drawable/tabbar_picture_bg" android:layout_toLeftOf="@id/tabbar_font_btn" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/tabbar_font_btn" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="24.0dip" android:src="@drawable/tabbar_font_bg" android:layout_toLeftOf="@id/tabbar_more_btn" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/tabbar_more_btn" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="24.0dip" android:src="@drawable/tabbar_more_bg" android:layout_toLeftOf="@id/tabbar_setting_btn" android:layout_centerVertical="true" />
+            <ImageButton android:id="@id/tabbar_setting_btn" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/tabbar_setting_bg" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/tabbar_title_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="17.0sp" android:textColor="@color/ssxinzi1" android:id="@id/tabbar_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tabbar_title_font_text" android:layout_centerInParent="true" />
+            <TextView android:textSize="17.0sp" android:textColor="@color/ssxinzi1" android:gravity="center" android:id="@id/tabbar_done" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/tabbar_title_done_text" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <View android:background="@color/ssxinxian7" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <View android:id="@id/place_holder_view" android:background="@color/tabbar_bg_color" android:layout_width="fill_parent" android:layout_height="0.0dip" />
+        <ScrollView android:id="@id/bottom_panel_layout" android:background="@color/tabbar_bg_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true" />
+    </FrameLayout>
+</LinearLayout>

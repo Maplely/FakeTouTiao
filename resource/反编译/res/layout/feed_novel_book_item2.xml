@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@android:color/transparent" android:paddingBottom="16.0dip" android:layout_width="87.0dip" android:layout_height="116.0dip" android:layout_marginLeft="@dimen/list_item_horizontal_outside_padding" android:layout_marginRight="@dimen/list_item_horizontal_outside_padding" style="@style/Clickable"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/item_novel_cover" android:layout_width="65.0dip" android:layout_height="43.0dip" android:layout_marginTop="28.0dip" android:layout_centerHorizontal="true" myapp:actualImageScaleType="fitCenter" myapp:placeholderImage="@drawable/simple_image_holder_listpage" xmlns:myapp="http://schemas.android.com/apk/res-auto" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/ssxinzi1" android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/more_novels" android:maxLines="1" android:drawableRight="@drawable/arrow_theme_textpage" android:drawablePadding="3.0dip" android:layout_below="@id/item_novel_cover" android:layout_alignLeft="@id/item_novel_cover" />
+</RelativeLayout>

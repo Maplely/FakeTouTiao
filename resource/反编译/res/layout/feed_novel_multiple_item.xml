@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Clickable"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ss.android.article.base.feature.feed.view.HorizontalOverScrollView android:id="@id/scroll_view" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:layout_below="@id/info_layout_group" android:overScrollMode="always">
+        <LinearLayout android:gravity="top" android:orientation="horizontal" android:id="@id/book_container" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <RelativeLayout android:layout_gravity="top" android:id="@id/strap" android:layout_width="wrap_content" android:layout_height="116.0dip" android:layout_marginLeft="15.0dip">
+                <ImageView android:id="@id/left_slip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/feed_left_slip" android:layout_centerVertical="true" />
+                <View android:id="@id/line" android:background="@color/ssxinmian7" android:layout_width="130.0dip" android:layout_height="1.0dip" android:layout_toRightOf="@id/left_slip" android:layout_centerVertical="true" />
+                <TextView android:textSize="11.0sp" android:textColor="@color/ssxinzi3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="6.0dip" android:text="@string/release_to_view_more_novel" android:layout_toRightOf="@id/left_slip" android:layout_below="@id/line" />
+            </RelativeLayout>
+        </LinearLayout>
+    </com.ss.android.article.base.feature.feed.view.HorizontalOverScrollView>
+</RelativeLayout>

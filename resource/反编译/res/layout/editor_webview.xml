@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ss.android.wenda.ui.NestedLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/editor_question_title_layout" />
+    <com.ss.android.wenda.ui.NestedWebView android:id="@id/editor_webview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</com.ss.android.wenda.ui.NestedLayout>

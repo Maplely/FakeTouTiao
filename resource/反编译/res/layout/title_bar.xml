@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout style="@style/title_bar_style"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/back" style="@style/back_view" />
+    <TextView android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="@style/title_text_style" />
+    <TextView android:id="@id/right_text" android:visibility="gone" android:layout_alignParentRight="true" style="@style/title_bar_button" />
+    <TextView android:id="@id/top_more_title" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="0.0" android:layout_alignParentRight="true" style="@style/detail_more_title_view" />
+    <ImageView android:id="@id/search_icon" android:padding="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:src="@drawable/search_topic" android:layout_toLeftOf="@id/top_more_title" android:layout_centerVertical="true" />
+    <ProgressBar android:id="@id/right_progress" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:indeterminateOnly="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="?android:attr/progressBarStyleSmall" />
+</RelativeLayout>

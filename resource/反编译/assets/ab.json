@@ -1,0 +1,91 @@
+{
+  "filter_keys": {
+    "android_6_permission_dialog": {
+      "94563": "94563",
+      "94564": "94564",
+      "94565": "94565",
+      "94566": "94566",
+      "94567": "94567",
+      "94568": "94568",
+      "94569": "94569",
+      "94570": "94570",
+      "__default_key": "94563"
+    }
+  },
+  "traffic_map": [
+    {
+      "layer_name": "article_stream_by_device_id",
+      "filters": {
+        "first_install_version": ">=5.9.2",
+        "min_sdk_version": "23",
+        "no_miui": "true"
+      },
+      "experiments": [
+        {
+          "group_name": "94563",
+          "min_region": 0,
+          "max_region": 124,
+          "results": {
+            "android_6_permission_dialog": "94563"
+          }
+        },
+        {
+          "group_name": "94564",
+          "min_region": 125,
+          "max_region": 249,
+          "results": {
+            "android_6_permission_dialog": "94564"
+          }
+        },
+        {
+          "group_name": "94565",
+          "min_region": 250,
+          "max_region": 374,
+          "results": {
+            "android_6_permission_dialog": "94565"
+          }
+        },
+        {
+          "group_name": "94566",
+          "min_region": 375,
+          "max_region": 499,
+          "results": {
+            "android_6_permission_dialog": "94566"
+          }
+        },
+        {
+          "group_name": "94567",
+          "min_region": 500,
+          "max_region": 624,
+          "results": {
+            "android_6_permission_dialog": "94567"
+          }
+        },
+        {
+          "group_name": "94568",
+          "min_region": 625,
+          "max_region": 749,
+          "results": {
+            "android_6_permission_dialog": "94568"
+          }
+        },
+        {
+          "group_name": "94569",
+          "min_region": 750,
+          "max_region": 874,
+          "results": {
+            "android_6_permission_dialog": "94569"
+          }
+        },
+        {
+          "group_name": "94570",
+          "min_region": 875,
+          "max_region": 999,
+          "results": {
+            "android_6_permission_dialog": "94570"
+          }
+        }
+      ]
+    }
+  ]
+}

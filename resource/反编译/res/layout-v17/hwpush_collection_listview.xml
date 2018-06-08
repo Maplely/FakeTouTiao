@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/listview_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:scrollbarStyle="outsideOverlay" android:layout_gravity="center_horizontal" android:id="@id/hwpush_collection_list" android:background="@color/hwpush_bgcolor_gray" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@null" />
+    <LinearLayout android:orientation="vertical" android:id="@id/hwpush_no_collection_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/hwpush_no_collection_icon" android:layout_width="66.0dip" android:layout_height="66.0dip" android:layout_marginTop="140.0dip" android:src="@drawable/hwpush_no_collection" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/hwpush_60_black_color" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/hwpush_no_collection_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="28.0dip" android:layout_marginTop="3.0dip" android:layout_marginRight="28.0dip" android:text="@string/hwpush_no_collection" android:layout_marginStart="28.0dip" android:layout_marginEnd="28.0dip" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="@color/ssxinzi1" android:ellipsize="end" android:id="@id/question_title_tv" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/feed_margin" android:layout_marginTop="12.0dip" android:layout_marginRight="@dimen/feed_margin" android:layout_marginBottom="12.0dip" android:maxLines="2" android:lineSpacingExtra="2.0dip" />
+    <View android:id="@id/question_title_line" android:background="@color/ssxinxian1" android:layout_width="fill_parent" android:layout_height="0.5dip" />
+</LinearLayout>

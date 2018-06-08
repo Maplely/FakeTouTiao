@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:fresco="http://schemas.android.com/apk/res-auto">
+    <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/multi_style_image0" android:layout_width="fill_parent" android:layout_height="fill_parent" fresco:roundingBorderPadding="1.0px" fresco:roundingBorderWidth="1.0px" fresco:border_color="@color/ssxinxian1" />
+    <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/multi_style_image1" android:layout_width="70.0dip" android:layout_height="70.0dip" fresco:roundingBorderPadding="1.0px" fresco:roundingBorderWidth="1.0px" fresco:border_color="@color/ssxinxian1" />
+    <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/multi_style_image2" android:layout_width="70.0dip" android:layout_height="70.0dip" fresco:roundingBorderPadding="1.0px" fresco:roundingBorderWidth="1.0px" fresco:border_color="@color/ssxinxian1" />
+    <TextView android:textSize="15.0dip" android:textColor="@color/ssxinzi12" android:gravity="center" android:id="@id/rest_pic_num" android:background="@color/trans_30_percent" android:visibility="gone" android:layout_width="70.0dip" android:layout_height="70.0dip" />
+</merge>

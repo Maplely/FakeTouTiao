@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:background="@color/ssxinmian3" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_below="@id/large_image"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bytedance.article.common.ui.EllipsisTextView android:textSize="14.0sp" android:textColor="@color/ssxinzi2" android:id="@id/large_image_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:maxLines="1" android:layout_toLeftOf="@id/ad_progress_layout" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/ad_progress_layout" android:layout_width="72.0dip" android:layout_height="28.0dip" android:layout_marginRight="8.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <ProgressBar android:id="@id/btn_ad_progress_bar" android:layout_width="72.0dip" android:layout_height="28.0dip" style="@style/action_ad_progress_bar" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/ssxinzi6" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/btn_ad_tv" android:layout_width="72.0dip" android:layout_height="28.0dip" android:text="@string/call_now" android:maxLines="1" />
+    </RelativeLayout>
+</merge>

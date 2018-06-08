@@ -1,0 +1,12 @@
+.class public final Lcom/ss/android/push/R;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ss/android/push/R$style;,
+        Lcom/ss/android/push/R$string;
+    }
+.end annotation

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/video_capture_red_dot" />
+    <size android:height="7.5dip" android:width="7.5dip" />
+    <corners android:radius="3.75dip" />
+</shape>

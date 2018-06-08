@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/root_view" android:background="@color/ssxinmian4" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/search_titlebar_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/wenda_title_bar" />
+    <View android:id="@id/divide_line" android:background="@color/ssxinxian7" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_below="@id/search_titlebar_layout" />
+    <com.ss.android.common.ui.view.SwipeOverlayFrameLayout android:id="@id/fragment_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/divide_line" />
+</RelativeLayout>

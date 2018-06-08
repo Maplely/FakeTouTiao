@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="@color/mediamaker_prg_bg" />
+            <size android:height="2.5dip" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <solid android:color="@color/ssxinxian3" />
+                <size android:height="2.5dip" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

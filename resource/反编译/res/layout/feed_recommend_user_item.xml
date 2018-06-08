@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bytedance.article.common.impression.ImpressionLinearLayout android:orientation="vertical" android:id="@id/recommend_user_item_root" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/top_padding" android:visibility="visible" android:layout_width="fill_parent" style="@style/common_space_divider" />
+    <RelativeLayout android:paddingLeft="15.0dip" android:layout_width="fill_parent" android:layout_height="40.0dip">
+        <ImageView android:id="@id/recommend_user_item_dislike" android:paddingLeft="@dimen/list_item_horizontal_inside_padding" android:paddingRight="@dimen/list_item_horizontal_outside_padding" android:clickable="true" android:layout_width="wrap_content" android:layout_height="@dimen/feed_card_header_hight" android:src="@drawable/popicon_listpage" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="14.0dip" android:textColor="@color/ssxinzi1" android:ellipsize="end" android:id="@id/recommend_user_item_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:maxLines="1" android:layout_toLeftOf="@id/recommend_user_item_dislike" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <com.ss.android.article.base.feature.feed.view.GestureToleranceScrollView android:id="@id/recommend_user_item_scroll_view" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip">
+        <LinearLayout android:orientation="horizontal" android:id="@id/user_card_container" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="180.0dip" />
+    </com.ss.android.article.base.feature.feed.view.GestureToleranceScrollView>
+    <LinearLayout android:orientation="horizontal" android:id="@id/show_more_root" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="14.0dip" android:textColor="@color/ssxinzi1" android:gravity="center" android:id="@id/recommend_user_item_showmore" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginLeft="15.0dip" />
+    </LinearLayout>
+    <ImageView android:id="@id/bottom_padding" android:visibility="visible" android:layout_width="fill_parent" style="@style/common_space_divider" />
+</com.bytedance.article.common.impression.ImpressionLinearLayout>

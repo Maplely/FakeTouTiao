@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/ssxinmian4" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/framelayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:minHeight="103.0dip">
+        <com.ss.android.detail.feature.detail2.widget.tagview.TagLayout android:id="@id/tag_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <RelativeLayout android:id="@id/input_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="9.0dip" android:layout_below="@id/framelayout">
+        <ImageView android:id="@id/cancel_input" android:paddingLeft="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/close_discover_btn" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <com.ss.android.detail.feature.detail.view.SafetyEditText android:textSize="18.0sp" android:textColor="@color/ssxinzi1" android:textColorHint="@color/ssxinzi9" android:id="@id/tag_input" android:background="@null" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/add_tag_hint" android:singleLine="true" android:drawableLeft="@drawable/ask_icon_write" android:drawablePadding="8.0dip" android:layout_toLeftOf="@id/cancel_input" android:imeOptions="actionDone" android:textCursorDrawable="@drawable/text_cursor_drawable" />
+    </RelativeLayout>
+    <View android:id="@id/divide_line" android:background="@color/ssxinxian1" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_below="@id/input_layout" />
+    <ListView android:id="@id/tag_list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@null" android:cacheColorHint="@null" android:divider="@null" android:layout_below="@id/divide_line" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/ssxinzi4" android:id="@id/no_result" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/tag_no_exist" android:drawableLeft="@drawable/ask_icon_prompt" android:drawablePadding="6.0dip" android:layout_below="@id/divide_line" />
+</RelativeLayout>

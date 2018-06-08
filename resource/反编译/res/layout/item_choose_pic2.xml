@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ss.android.common.view.SquareRelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.ss.android.article.common.NightModeAsyncImageView android:id="@id/selected_image" android:background="@drawable/bg_select_pic" android:layout_width="fill_parent" android:layout_height="fill_parent" app:actualImageScaleType="centerCrop" />
+    <ImageView android:id="@id/delete_image" android:paddingLeft="25.0dip" android:paddingBottom="25.0dip" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ask_delete_picture_normal" android:scaleType="fitXY" android:layout_alignTop="@id/selected_image" android:layout_alignRight="@id/selected_image" />
+    <ImageView android:id="@id/add_image" android:background="@drawable/bg_select_pic" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/create_dongtai_center_cross_image" android:scaleType="center" />
+</com.ss.android.common.view.SquareRelativeLayout>

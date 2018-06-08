@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ss.android.media.video.widget.MediaVideoTitleBar android:background="@color/ssxinmian3" android:layout_width="fill_parent" android:layout_height="44.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="17.0sp" android:textColor="@color/media_title_bar_btn" android:id="@id/cancel_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/cancel" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="17.0sp" android:textColor="@color/zi1" android:id="@id/title" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+    <TextView android:textSize="17.0sp" android:textColor="@color/media_title_bar_btn" android:gravity="center_vertical" android:id="@id/btn_left_1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="35.0dip" android:layout_marginRight="14.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="17.0sp" android:textColor="@color/media_title_bar_btn" android:gravity="center_vertical" android:id="@id/btn_left_2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="35.0dip" android:layout_marginRight="14.0dip" android:layout_toLeftOf="@id/btn_left_1" android:layout_centerVertical="true" />
+</com.ss.android.media.video.widget.MediaVideoTitleBar>

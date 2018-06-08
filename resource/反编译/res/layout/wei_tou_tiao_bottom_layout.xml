@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.bytedance.article.common.ui.DiggLayout android:id="@id/u11_bottom_layout_style1_digg" android:layout_width="wrap_content" android:layout_height="wrap_content" app:type="listType" app:minimumWidth="30.0dip" app:dl_txtsize="11.0sp" app:dl_drawablePadding="3.0dip" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/ssxinzi13" android:gravity="center|left" android:id="@id/u11_bottom_layout_style1_comment_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:drawableLeft="@drawable/c_comment_icon" android:drawablePadding="3.0dip" />
+    <View android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/u11_bottom_layout_style1_dislike" android:paddingLeft="@dimen/list_item_horizontal_inside_padding" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/dislikeicon_textpage" android:scaleType="centerInside" />
+</merge>
