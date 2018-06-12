@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FakeTouTiao.iml" filepath="$PROJECT_DIR$/FakeTouTiao.iml" />
-      <module fileurl="file://C:\Users\top2011\Desktop\FakeTouTiao\FakeTouTiao.iml" filepath="C:\Users\top2011\Desktop\FakeTouTiao\FakeTouTiao.iml" />
+      <module fileurl="file://C:/Users/top2011/Desktop/FakeTouTiao/FakeTouTiao.iml" filepath="C:/Users/top2011/Desktop/FakeTouTiao/FakeTouTiao.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\top2011\Desktop\FakeTouTiao\app\app.iml" filepath="C:\Users\top2011\Desktop\FakeTouTiao\app\app.iml" />
+      <module fileurl="file://C:/Users/top2011/Desktop/FakeTouTiao/app/app.iml" filepath="C:/Users/top2011/Desktop/FakeTouTiao/app/app.iml" />
     </modules>
   </component>
 </project>
