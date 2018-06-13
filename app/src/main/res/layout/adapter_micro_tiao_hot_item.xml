@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/micro_hot_item_iv"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"/>
+
+    <View
+        android:id="@+id/micro_hot_item_stub"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:id="@+id/micro_hot_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@id/micro_hot_item_stub"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/micro_hot_item_iv"
+        android:layout_toRightOf="@id/micro_hot_item_iv"/>
+
+    <TextView
+        android:id="@+id/micro_hot_item_des"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@id/micro_hot_item_stub"
+        android:layout_toEndOf="@id/micro_hot_item_iv"
+        android:layout_toRightOf="@id/micro_hot_item_iv"
+        android:gravity="center"/>
+</RelativeLayout>
