@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.mvp.contract.MainContract;
 import toutiao.fake.com.faketoutiao.ui.fragment.MicroTiaoFragment;
-import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment;
+import toutiao.fake.com.faketoutiao.ui.fragment.HomeFragment;
 import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment1;
 import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment3;
 
@@ -27,7 +27,7 @@ public class MainActivity extends FragmentActivity implements MainContract.IView
     private String[] tab_names = {"首页", "西瓜视频", "微头条", "小视频"};
     private int[] im_drawables = {R.drawable.home_selector, R.drawable.melon_selector,
         R.drawable.triangle_selector, R.drawable.play_selector};
-    private  Class[] fragments={TestFragment.class, TestFragment1.class, MicroTiaoFragment.class, TestFragment3.class};
+    private  Class[] fragments={HomeFragment.class, TestFragment1.class, MicroTiaoFragment.class, TestFragment3.class};
     private LayoutInflater mInflate;
 
     @Override
