@@ -63,7 +63,13 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
         mMicroAdapter = new MicroAdapter();
         mMicroAdapter.addHotView(new MicroTiaoHotView(getActivity()));
         micro_rv.setAdapter(mMicroAdapter);
-        micro_rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        micro_rv.setLayoutManager(new LinearLayoutManager(getActivity()){
+            @Override
+            public RecyclerView.LayoutParams generateDefaultLayoutParams() {
+                return new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            }
+        });
     }
 
     @OnClick({R.id.micro_follow_iv, R.id.micro_publish_iv})

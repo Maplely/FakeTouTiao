@@ -23,7 +23,9 @@
         android:textStyle="bold"
         />
     <android.support.v7.widget.RecyclerView
-        android:layout_margin="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
         android:id="@+id/micro_hot_rv"
         android:layout_below="@+id/item_tile"
         android:layout_width="match_parent"

@@ -26,7 +26,6 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
     private static final String TAG = "MicroAdapter";
     private View mHeaderView;
     private View mFooter;
-    private View mHoter;
 
     @NonNull
     @Override
@@ -36,7 +35,7 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
                 return new MicroHolder(mHeaderView);
             }
         } else if (viewType == type_hot) {
-            if (mHoter != null) {
+            if (mHotView != null) {
                 return new MicroHolder(mHotView);
             }
         } else if (viewType == type_foot) {
@@ -67,18 +66,26 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
 
     @Override
     public int getItemCount() {
-        return (mHeaderView == null ? 0 : 1) + (mHoter == null ? 0 : 1) + (mFooter == null ? 0 : 1) + (mContentData
+        return (mHeaderView == null ? 0 : 1) + (mHotView == null ? 0 : 1) + (mFooter == null ? 0 : 1) + (mContentData
             == null ? 0 : mContentData.size());
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
+        if (mHeaderView != null && position == 0) {
             return type_header;
-        } else if (position == 1) {
-            return type_hot;
-        } else if (position == mContentData.size() + 1) {
-            return type_foot;
+        }
+        if (mHotView != null) {
+            if (mHeaderView != null && position == 1) {
+                return type_hot;
+            } else if (position == 0) {
+                return type_hot;
+            }
+        }
+        if (mFooter != null) {
+            if (position == (mHeaderView == null ? 0 : 1) + (mHotView == null ? 0 : 1) + mContentData.size()) {
+                return type_foot;
+            }
         }
         return type_content;
     }
@@ -94,7 +101,7 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
     }
 
     public void addHotView(View v) {
-        mHoter = v;
+        mHotView = (MicroTiaoHotView) v;
         notifyDataSetChanged();
     }
 

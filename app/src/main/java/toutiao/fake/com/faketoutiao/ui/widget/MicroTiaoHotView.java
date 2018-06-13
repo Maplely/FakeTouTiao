@@ -1,6 +1,7 @@
 package toutiao.fake.com.faketoutiao.ui.widget;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -43,11 +44,23 @@ public class MicroTiaoHotView extends FrameLayout {
     }
 
     private void initView() {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.view_micro_tiao_hot, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.view_micro_tiao_hot, this,true);
         ButterKnife.bind(this,view);
         mHotAdapter = new MicroHotAdapter();
+        micro_hot_rc.setNestedScrollingEnabled(false);
         micro_hot_rc.setAdapter(mHotAdapter);
-        micro_hot_rc.setLayoutManager(new GridLayoutManager(TiaoApplication.sContext,2));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(TiaoApplication.sContext, 2);
+        micro_hot_rc.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+                outRect.right=3;
+                outRect.left=3;
+                outRect.top=3;
+                outRect.bottom=3;
+            }
+        });
+        micro_hot_rc.setLayoutManager(gridLayoutManager);
     }
     public void setData(List<MicroHotBean> list){
         mHotAdapter.setData(list);

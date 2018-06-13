@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -21,7 +22,7 @@ import toutiao.fake.com.faketoutiao.utils.ImageLoader;
  */
 public class MicroHotAdapter extends RecyclerView.Adapter<MicroHotAdapter.HotHolder> {
 
-    List<MicroHotBean> mdatas;
+    List<MicroHotBean> mdatas=new ArrayList<>();
 
     public void setData(List<MicroHotBean> beans){
         mdatas.addAll(beans);
@@ -41,7 +42,7 @@ public class MicroHotAdapter extends RecyclerView.Adapter<MicroHotAdapter.HotHol
     public void onBindViewHolder(@NonNull HotHolder holder, int position) {
         holder.item_des.setText(mdatas.get(position).des);
         ImageLoader.setBitmapFromUrl(mdatas.get(position).ima_utl,holder.item_iv);
-        holder.item_title.setText(mdatas.get(position).title);
+        holder.item_title.setText("#"+mdatas.get(position).title+"#");
     }
 
     @Override
