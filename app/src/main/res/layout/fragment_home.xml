@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/home_header_top_ll"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_F8EB4248"
+        android:gravity="center_vertical">
+
+       <LinearLayout
+           android:id="@+id/home_login_ll"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:orientation="vertical"
+           android:gravity="center_horizontal">
+           <ImageView
+               android:layout_width="25dp"
+               android:layout_height="25dp"
+               android:src="@drawable/follow_titlebar"
+               android:contentDescription="TODO" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="未登录"
+               android:textSize="11sp"
+               android:textColor="@color/color_FFFFFF"/>
+       </LinearLayout>
+
+        <TextView
+            android:id="@+id/home_search_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:background="@drawable/home_top_search_bg"
+            android:drawableLeft="@drawable/home_search_icon"
+            android:hint="@string/home_search_hot"
+            android:gravity="center_vertical"
+            android:drawablePadding="8dp"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColorHint="@color/color_595858"/>
+
+        <LinearLayout
+            android:id="@+id/home_publish_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/camera_cellphone_setup"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发布"
+                android:textSize="11sp"
+                android:textColor="@color/color_FFFFFF"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
