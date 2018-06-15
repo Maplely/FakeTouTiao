@@ -13,7 +13,7 @@
         android:layout_height="match_parent"/>
 
     <android.support.v4.app.FragmentTabHost
-        android:background="#88ffffff"
+        android:background="#F4F5F6"
         android:layout_alignParentBottom="true"
         android:id="@+id/tab_host"
         android:layout_width="match_parent"

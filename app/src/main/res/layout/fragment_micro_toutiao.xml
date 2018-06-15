@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/micro_follow"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#F4F5F6"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/micro_follow_iv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/follow_titlebar"/>
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@id/micro_follow_iv"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="找人"
+            android:textColor="#000"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="微头条"
+            android:textColor="#000"
+            android:textSize="17sp"/>
+
+        <ImageView
+            android:id="@+id/micro_publish_iv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/camera_cellphone_setup"
+            android:tint="#000"/>
+
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/micro_publish_iv"
+            android:layout_marginRight="5dp"
+            android:text="发布"
+            android:textColor="#000"
+            android:textSize="11sp"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/micro_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

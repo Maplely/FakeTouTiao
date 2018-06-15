@@ -14,12 +14,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.mvp.contract.MainContract;
-import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment;
+import toutiao.fake.com.faketoutiao.ui.fragment.MicroTiaoFragment;
+import toutiao.fake.com.faketoutiao.ui.fragment.HomeFragment;
 import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment1;
-import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment2;
 import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment3;
 
-public class MainActivity extends FragmentActivity implements MainContract.MainView<MainContract.MainPresenter> {
+public class MainActivity extends FragmentActivity implements MainContract.IView {
     @BindView(R.id.content)
     FrameLayout mContent;
     @BindView(R.id.tab_host)
@@ -27,7 +27,7 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     private String[] tab_names = {"首页", "西瓜视频", "微头条", "小视频"};
     private int[] im_drawables = {R.drawable.home_selector, R.drawable.melon_selector,
         R.drawable.triangle_selector, R.drawable.play_selector};
-    private  Class[] fragments={TestFragment.class, TestFragment1.class, TestFragment2.class, TestFragment3.class};
+    private  Class[] fragments={HomeFragment.class, TestFragment1.class, MicroTiaoFragment.class, TestFragment3.class};
     private LayoutInflater mInflate;
 
     @Override
@@ -52,7 +52,7 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
 
     @SuppressLint("ResourceAsColor")
     private View getTabView(int i) {
-        View view = mInflate.inflate(R.layout.tab_item, null);
+        View view = mInflate.inflate(R.layout.view_main_activity_tab_item, null);
         ImageView tab_iv = (ImageView) view.findViewById(R.id.tab_iv);
         tab_iv.setImageResource(im_drawables[i]);
         TextView tab_tv = (TextView) view.findViewById(R.id.tab_tv);
