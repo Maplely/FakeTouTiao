@@ -7,21 +7,25 @@
 
     <ImageView
         android:id="@+id/item_tile"
-        android:layout_width="30dp"
-        android:layout_margin="10dp"
+        android:layout_width="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/loveicon_textpage"
         android:layout_height="30dp"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="热榜"
-        android:textColor="#000"
         android:layout_toRightOf="@id/item_tile"
-        android:layout_alignTop="@id/item_tile"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        />
+        android:layout_alignTop="@+id/item_tile"
+        android:layout_marginTop="5dp"
+        android:text="热榜"
+        android:layout_marginLeft="5dp"
+        android:textColor="#000"
+        android:textSize="13sp"
+        android:textStyle="bold"/>
     <android.support.v7.widget.RecyclerView
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"

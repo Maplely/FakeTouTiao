@@ -43,6 +43,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
         View view = inflater.inflate(R.layout.fragment_micro_toutiao, container, false);
         ButterKnife.bind(this, view);
         return view;
+
     }
 
     @Override

@@ -46,7 +46,7 @@ public class MicroTiaoHotView extends FrameLayout {
     private void initView() {
         View view = LayoutInflater.from(mContext).inflate(R.layout.view_micro_tiao_hot, this,true);
         ButterKnife.bind(this,view);
-        mHotAdapter = new MicroHotAdapter();
+        mHotAdapter = new MicroHotAdapter(mContext);
         micro_hot_rc.setNestedScrollingEnabled(false);
         micro_hot_rc.setAdapter(mHotAdapter);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(TiaoApplication.sContext, 2);
@@ -54,10 +54,10 @@ public class MicroTiaoHotView extends FrameLayout {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
-                outRect.right=3;
-                outRect.left=3;
+                outRect.right=10;
+                outRect.left=10;
                 outRect.top=3;
-                outRect.bottom=3;
+                outRect.bottom=25;
             }
         });
         micro_hot_rc.setLayoutManager(gridLayoutManager);
