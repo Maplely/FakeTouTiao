@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
               android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/item_tile"
+        android:layout_width="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/loveicon_textpage"
+        android:layout_height="30dp"/>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/loveicon_textpage"
-        android:drawablePadding="10dp"
+        android:layout_toRightOf="@id/item_tile"
+        android:layout_alignTop="@+id/item_tile"
+        android:layout_marginTop="5dp"
         android:text="热榜"
+        android:layout_marginLeft="5dp"
         android:textColor="#000"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
+        android:textSize="13sp"
+        android:textStyle="bold"/>
     <android.support.v7.widget.RecyclerView
-        android:layout_margin="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
         android:id="@+id/micro_hot_rv"
+        android:layout_below="@+id/item_tile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-</LinearLayout>
+</RelativeLayout>

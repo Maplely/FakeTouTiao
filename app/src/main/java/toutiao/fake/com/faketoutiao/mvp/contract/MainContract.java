@@ -8,10 +8,10 @@ import toutiao.fake.com.faketoutiao.mvp.base.BaseView;
  */
 
 public interface MainContract {
-    interface MainView<M extends BasePresenter> extends BaseView<BasePresenter> {
+    interface IView extends BaseView<IPresenter> {
 
     }
-    interface MainPresenter extends BasePresenter{
+    interface IPresenter extends BasePresenter{
 
     }
 

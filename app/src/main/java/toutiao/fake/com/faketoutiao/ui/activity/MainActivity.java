@@ -19,7 +19,7 @@ import toutiao.fake.com.faketoutiao.ui.fragment.HomeFragment;
 import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment1;
 import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment3;
 
-public class MainActivity extends FragmentActivity implements MainContract.MainView<MainContract.MainPresenter> {
+public class MainActivity extends FragmentActivity implements MainContract.IView {
     @BindView(R.id.content)
     FrameLayout mContent;
     @BindView(R.id.tab_host)

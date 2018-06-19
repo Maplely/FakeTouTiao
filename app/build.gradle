@@ -34,4 +34,5 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:design:27.1.1'
+    implementation 'com.ruffian.library:RTextView:1.0.9'
 }
