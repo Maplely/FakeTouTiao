@@ -1,4 +1,4 @@
-package toutiao.fake.com.faketoutiao.ui.model;
+package toutiao.fake.com.faketoutiao.mvp.model.Bean;
 
 public class RecommendNewsBean {
     private String newsId;

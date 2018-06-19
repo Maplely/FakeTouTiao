@@ -12,7 +12,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import toutiao.fake.com.faketoutiao.R;
-import toutiao.fake.com.faketoutiao.ui.model.RecommendNewsBean;
+import toutiao.fake.com.faketoutiao.mvp.model.Bean.RecommendNewsBean;
 
 public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 

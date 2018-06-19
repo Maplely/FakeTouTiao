@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.ui.adpater.HomeRecommendRvAdapter;
 import toutiao.fake.com.faketoutiao.ui.base.BaseFragment;
-import toutiao.fake.com.faketoutiao.ui.model.RecommendNewsBean;
+import toutiao.fake.com.faketoutiao.mvp.model.Bean.RecommendNewsBean;
 
 public class HomeRecommendFragment extends BaseFragment{
 
