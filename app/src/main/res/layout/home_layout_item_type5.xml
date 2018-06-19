@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp">
+    <TextView
+        android:id="@+id/home_news_type5_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ojwojojo欧文宏观经济阿卡贫困解耦我奇偶积极"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="3dp"
+        android:lineSpacingMultiplier="1.3"/>
+
+    <LinearLayout
+        android:id="@+id/home_news_type5_picture_gv"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/home_news_type5_title_tv"
+        android:background="@drawable/home_layout_item_pic_bg"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="1500dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:background="@color/color_FF333232"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:background="@color/color_FF333232"
+            android:layout_marginRight="10dp"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:background="@color/color_FF333232"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/home_news_type5_flag_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="唯品广告"
+        android:textSize="8sp"
+        android:textColor="@color/color_FF5A72F6"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/home_layout_item_tag_bg"
+        android:layout_below="@+id/home_news_type5_picture_gv" />
+
+    <TextView
+        android:id="@+id/home_news_type5_source_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="唯品精选"
+        android:textSize="10sp"
+        android:layout_toRightOf="@+id/home_news_type5_flag_tv"
+        android:layout_alignBottom="@+id/home_news_type5_flag_tv"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/home_news_type5_time_nums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13分钟前"
+        android:textSize="10sp"
+        android:layout_toRightOf="@+id/home_news_type5_source_tv"
+        android:layout_alignBottom="@+id/home_news_type5_source_tv"
+        android:layout_marginLeft="8dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="12dp"
+        android:id="@+id/home_news_type5_nocare_chahao"
+        android:src="@drawable/home_jd_browser_close"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@+id/home_news_type5_time_nums"
+        android:layout_alignRight="@+id/home_news_type5_title_tv"
+        android:background="@drawable/home_layout_item_nocare" />
+
+</RelativeLayout>

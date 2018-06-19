@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="home_tab">
+        <item>关注</item>
+        <item>推荐</item>
+        <item>热点</item>
+        <item>北京</item>
+        <item>视频</item>
+        <item>新时代</item>
+        <item>图片</item>
+        <item>世界杯</item>
+        <item>问答</item>
+        <item>娱乐</item>
+        <item>科技</item>
+        <item>懂车帝</item>
+        <item>财经</item>
+        <item>军事</item>
+        <item>体育</item>
+        <item>国际</item>
+        <item>健康</item>
+        <item>特卖</item>
+        <item>房产</item>
+        <item>冬奥</item>
+        <item>国风</item>
+        <item>历史</item>
+        <item>宠物</item>
+        <item>直播</item>
+    </string-array>
+</resources>
