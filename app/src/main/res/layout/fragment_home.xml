@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/home_header_top_ll"
         android:layout_width="match_parent"
@@ -8,63 +11,96 @@
         android:background="@color/color_F8EB4248"
         android:gravity="center_vertical">
 
-       <LinearLayout
-           android:id="@+id/home_login_ll"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:orientation="vertical"
-           android:gravity="center_horizontal">
-           <ImageView
-               android:layout_width="25dp"
-               android:layout_height="25dp"
-               android:src="@drawable/follow_titlebar"
-               android:contentDescription="TODO" />
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="未登录"
-               android:textSize="11sp"
-               android:textColor="@color/color_FFFFFF"/>
-       </LinearLayout>
+        <LinearLayout
+            android:id="@+id/home_login_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:contentDescription="TODO"
+                android:src="@drawable/follow_titlebar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未登录"
+                android:textColor="@color/color_FFFFFF"
+                android:textSize="11sp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/home_search_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="5"
             android:background="@drawable/home_top_search_bg"
             android:drawableLeft="@drawable/home_search_icon"
-            android:hint="@string/home_search_hot"
-            android:gravity="center_vertical"
             android:drawablePadding="8dp"
-            android:textSize="14sp"
-            android:singleLine="true"
             android:ellipsize="end"
-            android:textColorHint="@color/color_595858"/>
+            android:gravity="center_vertical"
+            android:hint="@string/home_search_hot"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:singleLine="true"
+            android:textColorHint="@color/color_595858"
+            android:textSize="14sp" />
 
         <LinearLayout
             android:id="@+id/home_publish_ll"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:layout_alignParentRight="true">
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@drawable/camera_cellphone_setup"/>
+                android:src="@drawable/camera_cellphone_setup" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="发布"
-                android:textSize="11sp"
-                android:textColor="@color/color_FFFFFF"/>
+                android:textColor="@color/color_FFFFFF"
+                android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/home_tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/home_header_top_ll"
+        android:layout_marginRight="40dp"
+        app:tabGravity="fill"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/color_F8EB4248"
+        app:tabTextColor="@color/color_FF333232"
+        app:tabIndicatorHeight="0dp"
+        android:overScrollMode="never"
+        app:tabBackground="@drawable/home_tab_selector"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/home_tabLayout"
+        android:layout_alignTop="@+id/home_tabLayout"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/home_seemore" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_content_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/home_tabLayout" />
+
 </RelativeLayout>
