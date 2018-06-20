@@ -9,7 +9,7 @@
         android:id="@+id/item_tile"
         android:layout_width="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:scaleType="fitCenter"
         android:src="@drawable/loveicon_textpage"
         android:layout_height="30dp"/>

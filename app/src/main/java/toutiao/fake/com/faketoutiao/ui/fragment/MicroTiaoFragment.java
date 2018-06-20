@@ -1,8 +1,10 @@
 package toutiao.fake.com.faketoutiao.ui.fragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -62,11 +64,25 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
         mPresenter.loadHotData();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initView() {
         mMicroAdapter = new MicroAdapter();
         mMicroAdapter.addHotView(new MicroTiaoHotView(getActivity()));
         mMicroAdapter.setHeaderView(new MicroHeaderView(getActivity()));
         micro_rv.setAdapter(mMicroAdapter);
+        micro_rv.setOnFreshListener(new PullLoadRecyclerview.onFreshListener() {
+            @Override
+            public void onFreshing() {
+                micro_rv.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        micro_rv.stopFresh();
+                    }
+                },3000);
+            }
+        });
+
+
         micro_rv.setLayoutManager(new LinearLayoutManager(getActivity()){
             @Override
             public RecyclerView.LayoutParams generateDefaultLayoutParams() {

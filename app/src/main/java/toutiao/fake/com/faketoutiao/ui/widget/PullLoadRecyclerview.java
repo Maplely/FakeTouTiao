@@ -6,7 +6,6 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -26,7 +25,7 @@ public class PullLoadRecyclerview extends RecyclerView {
     private int mCurrent_status = 0;
     private MicroHeaderView mHeaderView;
     private float mDragIndex = 0.35f;
-
+    onFreshListener mFreshListener;
     public PullLoadRecyclerview(Context context) {
         super(context);
     }
@@ -38,7 +37,9 @@ public class PullLoadRecyclerview extends RecyclerView {
     public PullLoadRecyclerview(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-
+    public void setOnFreshListener(onFreshListener freshListener){
+        mFreshListener= freshListener;
+    }
     @Override
     public void onViewAdded(View child) {
         super.onViewAdded(child);
@@ -47,6 +48,14 @@ public class PullLoadRecyclerview extends RecyclerView {
             mHeaderView = ((MicroHeaderView) mAdapter.getHeaderView());
             mHeaderView.measure(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             mHeaderHeight = mHeaderView.getMeasuredHeight();
+            mHeaderView.setOnFinish(new MicroHeaderView.onFinish() {
+                @Override
+                public void onfinish() {
+                    MarginLayoutParams layoutParams = (MarginLayoutParams) mHeaderView.getLayoutParams();
+                    layoutParams.topMargin=-mHeaderHeight+1;
+                    mHeaderView.setLayoutParams(layoutParams);
+                }
+            });
         }
     }
 
@@ -87,7 +96,6 @@ public class PullLoadRecyclerview extends RecyclerView {
             if (mHeaderView != null && mHeaderHeight > 0) {
                 mHeaderHeight = mHeaderView.getMeasuredHeight();
                 if (mHeaderHeight > 0) {
-                    Log.e("TTT", "changed");
                     setFreshViewMarginTop(-mHeaderHeight + 1);
                 }
             }
@@ -131,20 +139,30 @@ public class PullLoadRecyclerview extends RecyclerView {
         mHeaderView.setLayoutParams(layoutParams);
 
     }
+    public void stopFresh(){
+        mCurrent_status=STATUS_IDLE;
+        refresh();
+    }
     private void refresh() {
         switch (mCurrent_status) {
             case STATUS_DOWN:
                 mHeaderView.down_fresh();
                 break;
             case STATUS_FRESHING:
+                if(mFreshListener!=null){
+                    mFreshListener.onFreshing();
+                }
                 mHeaderView.freshing();
                 break;
             case STATUS_READY:
-                mHeaderView.read_fresh();
+                mHeaderView.ready_fresh();
                 break;
             case STATUS_IDLE:
                 mHeaderView.freshed();
                 break;
         }
+    }
+   public  interface onFreshListener{
+         void onFreshing();
     }
 }
