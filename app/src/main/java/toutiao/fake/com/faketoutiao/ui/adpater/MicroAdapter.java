@@ -24,8 +24,25 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
     private List mContentData = new ArrayList();
     private MicroTiaoHotView mHotView;
     private static final String TAG = "MicroAdapter";
+
+    public View getHeaderView() {
+        return mHeaderView;
+    }
+
+    public void setHeaderView(View headerView) {
+        mHeaderView = headerView;
+    }
+
+    public View getFooterView() {
+        return mFooterView;
+    }
+
+    public void setFooterView(View footerView) {
+        mFooterView = footerView;
+    }
+
     private View mHeaderView;
-    private View mFooter;
+    private View mFooterView;
 
     @NonNull
     @Override
@@ -39,8 +56,8 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
                 return new MicroHolder(mHotView);
             }
         } else if (viewType == type_foot) {
-            if (mFooter != null) {
-                return new MicroHolder(mFooter);
+            if (mFooterView != null) {
+                return new MicroHolder(mFooterView);
             }
         }
         return new MicroHolder(new View(parent.getContext()));
@@ -66,7 +83,7 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
 
     @Override
     public int getItemCount() {
-        return (mHeaderView == null ? 0 : 1) + (mHotView == null ? 0 : 1) + (mFooter == null ? 0 : 1) + (mContentData
+        return (mHeaderView == null ? 0 : 1) + (mHotView == null ? 0 : 1) + (mFooterView == null ? 0 : 1) + (mContentData
             == null ? 0 : mContentData.size());
     }
 
@@ -82,22 +99,12 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
                 return type_hot;
             }
         }
-        if (mFooter != null) {
+        if (mFooterView != null) {
             if (position == (mHeaderView == null ? 0 : 1) + (mHotView == null ? 0 : 1) + mContentData.size()) {
                 return type_foot;
             }
         }
         return type_content;
-    }
-
-    public void addHeadler(View v) {
-        mHeaderView = v;
-        notifyDataSetChanged();
-    }
-
-    public void addFooter(View v) {
-        mFooter = v;
-        notifyDataSetChanged();
     }
 
     public void addHotView(View v) {
@@ -106,8 +113,9 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
     }
 
     static class MicroHolder extends RecyclerView.ViewHolder {
-        public MicroHolder(View itemView) {
+        MicroHolder(View itemView) {
             super(itemView);
         }
     }
+
 }

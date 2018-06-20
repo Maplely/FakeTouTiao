@@ -5,6 +5,13 @@
     <color name="colorAccent">#FF4081</color>
     <color name="color_F8EB4248">#F8EB4248</color>
     <color name="color_FFFFFF">#FFFFFF</color>
+    <color name="color_99FFFFFF">#99FFFFFF</color>
     <color name="color_595858">#595858</color>
+    <color name="color_FF333232">#FF333232</color>
+    <color name="color_aaa9a9">#aaa9a9</color>
+    <color name="color_FF5A72F6">#FF5A72F6</color>
     <color name="color_000000">#000000</color>
+    <color name="color_ffdde1">#ffdde1</color>
+    <color name="color_E9E4F0">#E9E4F0</color>
+    <color name="color_D3E9F9">#D3E9F9</color>
 </resources>

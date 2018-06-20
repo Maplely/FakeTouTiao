@@ -57,7 +57,7 @@
             android:textSize="11sp"/>
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <toutiao.fake.com.faketoutiao.ui.widget.PullLoadRecyclerview
         android:id="@+id/micro_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

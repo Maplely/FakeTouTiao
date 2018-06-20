@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/home_news_type3_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ojwojojo欧文宏观经济阿卡贫困解耦我奇偶积极"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="2dp"
+        android:lineSpacingMultiplier="1.3"/>
+
+    <TextView
+        android:id="@+id/home_news_type3_flag_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="置顶"
+        android:textSize="8sp"
+        android:textColor="@color/color_F8EB4248"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/home_layout_item_text_bg"
+        android:layout_below="@+id/home_news_type3_title_tv" />
+
+    <TextView
+        android:id="@+id/home_news_type3_source_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="央视网新闻"
+        android:textSize="10sp"
+        android:layout_toRightOf="@+id/home_news_type3_flag_tv"
+        android:layout_alignBottom="@+id/home_news_type3_flag_tv"
+        android:layout_marginLeft="5dp"/>
+    <TextView
+        android:id="@+id/home_news_type3_comment_nums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0评论"
+        android:textSize="10sp"
+        android:layout_toRightOf="@+id/home_news_type3_source_tv"
+        android:layout_alignBottom="@+id/home_news_type3_source_tv"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/home_news_type3_time_nums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13分钟前"
+        android:textSize="10sp"
+        android:layout_toRightOf="@+id/home_news_type3_comment_nums"
+        android:layout_alignBottom="@+id/home_news_type3_comment_nums"
+        android:layout_marginLeft="8dp"
+        />
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="12dp"
+        android:id="@+id/home_news_type3_nocare_chahao"
+        android:src="@drawable/home_jd_browser_close"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@+id/home_news_type3_time_nums"
+        android:layout_alignRight="@+id/home_news_type3_title_tv"
+        android:background="@drawable/home_layout_item_nocare" />
+
+</RelativeLayout>

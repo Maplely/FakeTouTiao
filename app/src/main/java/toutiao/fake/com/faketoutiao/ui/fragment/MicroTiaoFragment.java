@@ -23,7 +23,9 @@ import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
 import toutiao.fake.com.faketoutiao.mvp.presenter.MicroPresenter;
 import toutiao.fake.com.faketoutiao.ui.adpater.MicroAdapter;
 import toutiao.fake.com.faketoutiao.ui.base.BaseFragment;
+import toutiao.fake.com.faketoutiao.ui.widget.MicroHeaderView;
 import toutiao.fake.com.faketoutiao.ui.widget.MicroTiaoHotView;
+import toutiao.fake.com.faketoutiao.ui.widget.PullLoadRecyclerview;
 
 /**
  * Created by lihaitao on 2018/6/12.
@@ -31,7 +33,7 @@ import toutiao.fake.com.faketoutiao.ui.widget.MicroTiaoHotView;
 public class MicroTiaoFragment extends BaseFragment implements MicroContract.IView {
     private static final String TAG = "MicroTiaoFragment";
     @BindView(R.id.micro_rv)
-    RecyclerView micro_rv;
+    PullLoadRecyclerview micro_rv;
     private MicroAdapter mMicroAdapter;
     private MicroPresenter mPresenter;
 
@@ -43,6 +45,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
         View view = inflater.inflate(R.layout.fragment_micro_toutiao, container, false);
         ButterKnife.bind(this, view);
         return view;
+
     }
 
     @Override
@@ -62,6 +65,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
     private void initView() {
         mMicroAdapter = new MicroAdapter();
         mMicroAdapter.addHotView(new MicroTiaoHotView(getActivity()));
+        mMicroAdapter.setHeaderView(new MicroHeaderView(getActivity()));
         micro_rv.setAdapter(mMicroAdapter);
         micro_rv.setLayoutManager(new LinearLayoutManager(getActivity()){
             @Override
