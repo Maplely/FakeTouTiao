@@ -33,7 +33,8 @@
         android:id="@+id/micro_hot_rv"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:descendantFocusability="blocksDescendants"
+        android:clickable="false"
+        android:nestedScrollingEnabled="false"
         android:layout_below="@+id/item_tile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

@@ -4,10 +4,10 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,12 +64,22 @@ public class MicroHeaderView extends FrameLayout {
     }
 
     public void freshing() {
-        if (!mDrawable.isRunning()) {
-            mDrawable.start();
-
-        }
+        //利用handler实现循环播放
+        final Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                if (!mDrawable.isRunning()) {
+                    mDrawable.start();
+                }
+                handler.postDelayed(this,1200);
+            }
+        };
+        handler.postDelayed(runnable,0);
         fresh_title.setText("推荐中");
+
     }
+
 
     public void freshed() {
         if (mDrawable.isRunning()) {
@@ -87,7 +97,6 @@ public class MicroHeaderView extends FrameLayout {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int value = (int) valueAnimator.getAnimatedValue();
                 setFinishTvMargin(value);
-                Log.e("TTT", "" + value);
                 if (value == measuredHeight) {
                     fresh_title.setText("下拉推荐");
                     finish_tv.setVisibility(View.GONE);
@@ -100,14 +109,16 @@ public class MicroHeaderView extends FrameLayout {
         animator.start();
     }
 
-    public void setFinishTvMargin(int value){
+    public void setFinishTvMargin(int value) {
         MarginLayoutParams layoutParams = (MarginLayoutParams) finish_tv.getLayoutParams();
         layoutParams.topMargin = -value;
         finish_tv.setLayoutParams(layoutParams);
     }
-    public void setOnheaderFinish(onHeaderFinish finish){
-        onHeaderFinish =finish;
+
+    public void setOnheaderFinish(onHeaderFinish finish) {
+        onHeaderFinish = finish;
     }
+
     public void ready_fresh() {
         fresh_title.setText("松开推荐");
     }
@@ -115,8 +126,9 @@ public class MicroHeaderView extends FrameLayout {
     public void down_fresh() {
         fresh_title.setText("下拉推荐");
     }
-    interface onHeaderFinish{
-        public void onheaderFinish();
+
+    interface onHeaderFinish {
+        void onheaderFinish();
     }
 
 }
