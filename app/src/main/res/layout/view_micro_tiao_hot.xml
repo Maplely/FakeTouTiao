@@ -31,6 +31,9 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:id="@+id/micro_hot_rv"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:descendantFocusability="blocksDescendants"
         android:layout_below="@+id/item_tile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

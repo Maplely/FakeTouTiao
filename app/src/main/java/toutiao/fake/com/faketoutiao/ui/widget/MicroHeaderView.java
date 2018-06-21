@@ -34,16 +34,17 @@ public class MicroHeaderView extends FrameLayout {
     ImageView fresh_img;
     private Context mContext;
     private AnimatedVectorDrawable mDrawable;
-    onFinish mOnFinish;
+    private MicroHeaderView.onHeaderFinish onHeaderFinish;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public MicroHeaderView(Context context) {
-        this(context,null);
+        this(context, null);
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public MicroHeaderView(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
 
     }
 
@@ -56,47 +57,42 @@ public class MicroHeaderView extends FrameLayout {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initView() {
-        LayoutInflater.from(mContext).inflate(R.layout.fresh_header_item,this,true);
+        LayoutInflater.from(mContext).inflate(R.layout.fresh_header_item, this, true);
         ButterKnife.bind(this);
         mDrawable = (AnimatedVectorDrawable) fresh_img.getDrawable();
 
     }
-    public void setOnFinish(onFinish onFinish){
-        mOnFinish=onFinish;
-    }
-    public void freshing(){
-        if(!mDrawable.isRunning()){
+
+    public void freshing() {
+        if (!mDrawable.isRunning()) {
             mDrawable.start();
 
         }
         fresh_title.setText("推荐中");
     }
-    public void freshed(){
-        finish_tv.setVisibility(View.VISIBLE);
-        freshing_ll.setVisibility(View.GONE );
-        if(mDrawable.isRunning()){
-            mDrawable.stop();
 
+    public void freshed() {
+        if (mDrawable.isRunning()) {
+            mDrawable.stop();
         }
         finish_tv.setText("今日头条推荐引擎有9条更新");
-        finish_tv.measure(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        finish_tv.setVisibility(View.VISIBLE);
+        freshing_ll.setVisibility(View.GONE);
+        setFinishTvMargin(0);
+        finish_tv.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         final int measuredHeight = finish_tv.getMeasuredHeight();
-        ValueAnimator animator=ValueAnimator.ofInt(0,measuredHeight).setDuration(1000);
+        ValueAnimator animator = ValueAnimator.ofInt(0, measuredHeight).setDuration(1000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-               int value=(int) valueAnimator.getAnimatedValue();
-                MarginLayoutParams layoutParams = (MarginLayoutParams) finish_tv.getLayoutParams();
-                layoutParams.topMargin=-value;
-                finish_tv.setLayoutParams(layoutParams);
-                Log.e("TTT", ""+value);
-                if(value==measuredHeight){
+                int value = (int) valueAnimator.getAnimatedValue();
+                setFinishTvMargin(value);
+                Log.e("TTT", "" + value);
+                if (value == measuredHeight) {
                     fresh_title.setText("下拉推荐");
                     finish_tv.setVisibility(View.GONE);
                     freshing_ll.setVisibility(View.VISIBLE);
-                    if(mOnFinish!=null){
-                        mOnFinish.onfinish();
-                    }
+                    onHeaderFinish.onheaderFinish();
                 }
             }
         });
@@ -104,13 +100,23 @@ public class MicroHeaderView extends FrameLayout {
         animator.start();
     }
 
-    public void ready_fresh(){
+    public void setFinishTvMargin(int value){
+        MarginLayoutParams layoutParams = (MarginLayoutParams) finish_tv.getLayoutParams();
+        layoutParams.topMargin = -value;
+        finish_tv.setLayoutParams(layoutParams);
+    }
+    public void setOnheaderFinish(onHeaderFinish finish){
+        onHeaderFinish =finish;
+    }
+    public void ready_fresh() {
         fresh_title.setText("松开推荐");
     }
-    public void down_fresh(){
+
+    public void down_fresh() {
         fresh_title.setText("下拉推荐");
     }
-    interface  onFinish{
-        void onfinish();
+    interface onHeaderFinish{
+        public void onheaderFinish();
     }
+
 }
