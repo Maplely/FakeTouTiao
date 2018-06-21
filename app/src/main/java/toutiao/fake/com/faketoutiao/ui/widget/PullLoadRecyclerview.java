@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 
 import toutiao.fake.com.faketoutiao.ui.adpater.MicroAdapter;
 
@@ -23,20 +24,29 @@ public class PullLoadRecyclerview extends RecyclerView {
     private static final int STATUS_DOWN = 1;
     private static final int STATUS_READY = 2;
     private static final int STATUS_FRESHING = 3;
+    private static final int STATUS_RESET = 4;
     private int mCurrent_status = 0;
     private MicroHeaderView mHeaderView;
     private float mDragIndex = 0.35f;
+    onFreshListener mFreshListener;
+    private boolean mCurrentDrag = false;
+    private int mTouchSlop;
 
     public PullLoadRecyclerview(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public PullLoadRecyclerview(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public PullLoadRecyclerview(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+    }
+
+    public void setOnFreshListener(onFreshListener freshListener) {
+        mFreshListener = freshListener;
     }
 
     @Override
@@ -45,9 +55,27 @@ public class PullLoadRecyclerview extends RecyclerView {
         if (child instanceof MicroHeaderView) {
             mAdapter = (MicroAdapter) getAdapter();
             mHeaderView = ((MicroHeaderView) mAdapter.getHeaderView());
+            mHeaderView.setOnheaderFinish(new MicroHeaderView.onHeaderFinish() {
+                @Override
+                public void onheaderFinish() {
+                    setFreshViewMarginTop(-mHeaderHeight + 1);
+                    mCurrent_status = STATUS_IDLE;
+                }
+            });
             mHeaderView.measure(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             mHeaderHeight = mHeaderView.getMeasuredHeight();
         }
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent e) {
+        int action = e.getAction();
+        switch (action) {
+            case MotionEvent.ACTION_MOVE:
+
+                return true;
+        }
+        return super.onInterceptTouchEvent(e);
     }
 
     @Override
@@ -59,22 +87,30 @@ public class PullLoadRecyclerview extends RecyclerView {
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 rawY = (int) e.getRawY();
+                Log.e("TTT", "down");
                 return true;
             case MotionEvent.ACTION_UP:
-                restorReshView();
+                if (mCurrentDrag) {
+                    restorReshView();
+                }
                 return true;
             case MotionEvent.ACTION_MOVE:
-                if (canScrollVertically(-1) || mCurrent_status == STATUS_FRESHING) {
+                if (canScrollVertically(-1) || mCurrent_status == STATUS_FRESHING || mCurrent_status == STATUS_RESET) {
                     return super.onTouchEvent(e);
+                }
+                if (mCurrentDrag) {
+                    scrollToPosition(1);
                 }
                 float distanceY = (e.getRawY() - rawY) * mDragIndex;
                 if (distanceY > 0) {
                     float marginTop = distanceY - mHeaderHeight;
                     setFreshViewMarginTop(marginTop);
                     updateStatus(marginTop);
+                    mCurrentDrag = true;
+                    reFresh();
+                    return true;
                 }
-                refresh();
-                return true;
+                return super.onTouchEvent(e);
             default:
                 return super.onTouchEvent(e);
         }
@@ -87,22 +123,22 @@ public class PullLoadRecyclerview extends RecyclerView {
             if (mHeaderView != null && mHeaderHeight > 0) {
                 mHeaderHeight = mHeaderView.getMeasuredHeight();
                 if (mHeaderHeight > 0) {
-                    Log.e("TTT", "changed");
                     setFreshViewMarginTop(-mHeaderHeight + 1);
                 }
             }
         }
     }
+
     private void restorReshView() {
         int currenttopMargin = ((MarginLayoutParams) mHeaderView.getLayoutParams()).topMargin;
-        int finalMatgin = -mHeaderHeight + 1;
+        int finalMargin = -mHeaderHeight + 1;
         if (mCurrent_status == STATUS_READY) {
-            finalMatgin = 0;
+            finalMargin = 0;
             mCurrent_status = STATUS_FRESHING;
-            refresh();
+            reFresh();
         }
-        int distatnce = currenttopMargin - finalMatgin;
-        ValueAnimator animator = ObjectAnimator.ofFloat(currenttopMargin, finalMatgin).setDuration(distatnce);
+        int distatnce = currenttopMargin - finalMargin;
+        ValueAnimator animator = ObjectAnimator.ofFloat(currenttopMargin, finalMargin).setDuration(distatnce);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -111,7 +147,9 @@ public class PullLoadRecyclerview extends RecyclerView {
             }
         });
         animator.start();
+        mCurrentDrag = false;
     }
+
     private void updateStatus(float marginTop) {
         if (marginTop <= -mHeaderHeight) {
             mCurrent_status = STATUS_IDLE;
@@ -120,8 +158,9 @@ public class PullLoadRecyclerview extends RecyclerView {
         } else {
             mCurrent_status = STATUS_READY;
         }
-        refresh();
+        reFresh();
     }
+
     private void setFreshViewMarginTop(float marginTop) {
         MarginLayoutParams layoutParams = (MarginLayoutParams) mHeaderView.getLayoutParams();
         if (marginTop < -mHeaderHeight + 1) {
@@ -131,20 +170,32 @@ public class PullLoadRecyclerview extends RecyclerView {
         mHeaderView.setLayoutParams(layoutParams);
 
     }
-    private void refresh() {
+
+    public void stopFresh() {
+        mCurrent_status = STATUS_RESET;
+        reFresh();
+    }
+
+    private void reFresh() {
         switch (mCurrent_status) {
             case STATUS_DOWN:
                 mHeaderView.down_fresh();
                 break;
             case STATUS_FRESHING:
+                if (mFreshListener != null) {
+                    mFreshListener.onFreshing();
+                }
                 mHeaderView.freshing();
                 break;
             case STATUS_READY:
-                mHeaderView.read_fresh();
+                mHeaderView.ready_fresh();
                 break;
-            case STATUS_IDLE:
+            case STATUS_RESET:
                 mHeaderView.freshed();
                 break;
         }
+    }
+    public interface onFreshListener {
+        void onFreshing();
     }
 }
