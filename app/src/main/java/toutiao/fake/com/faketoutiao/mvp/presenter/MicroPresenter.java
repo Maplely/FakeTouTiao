@@ -6,7 +6,7 @@ import java.util.List;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import toutiao.fake.com.faketoutiao.mvp.contract.MicroContract;
-import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroBean;
+import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroContentBean;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
 import toutiao.fake.com.faketoutiao.mvp.model.MicroModel;
 
@@ -29,12 +29,12 @@ public class MicroPresenter implements MicroContract.IPresenter {
     @Override
     public void loadContentData() {
         mMicroModel.firstLoadContentData().subscribe(
-            new Observer<List<MicroBean>>() {
+            new Observer<List<MicroContentBean>>() {
                 @Override
                 public void onSubscribe(Disposable d) {
                 }
                 @Override
-                public void onNext(List<MicroBean> microBeans) {
+                public void onNext(List<MicroContentBean> microBeans) {
                     if(microBeans.size()==0){
                         mView.onEmpty();
                     }else{

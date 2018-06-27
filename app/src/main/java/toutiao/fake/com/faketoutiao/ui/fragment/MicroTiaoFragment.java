@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.mvp.contract.MicroContract;
-import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroBean;
+import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroContentBean;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
 import toutiao.fake.com.faketoutiao.mvp.presenter.MicroPresenter;
 import toutiao.fake.com.faketoutiao.ui.adpater.MicroAdapter;
@@ -50,6 +50,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -60,7 +61,6 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
 
     private void initData() {
         mPresenter = new MicroPresenter(this);
-//        mPresenter.loadContentData();
         mPresenter.loadHotData();
     }
 
@@ -103,7 +103,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
     }
 
     @Override
-    public void setContentData(List<MicroBean> list1) {
+    public void setContentData(List<MicroContentBean> list1) {
         mMicroAdapter.setContentData(list1);
     }
 

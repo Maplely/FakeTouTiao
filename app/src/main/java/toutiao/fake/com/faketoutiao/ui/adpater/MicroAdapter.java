@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroBean;
+import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroContentBean;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
 import toutiao.fake.com.faketoutiao.ui.widget.MicroTiaoHotView;
 
@@ -63,7 +63,7 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
         return new MicroHolder(new View(parent.getContext()));
     }
 
-    public void setContentData(List<MicroBean> dataList) {
+    public void setContentData(List<MicroContentBean> dataList) {
         mContentData.addAll(dataList);
         notifyDataSetChanged();
     }
