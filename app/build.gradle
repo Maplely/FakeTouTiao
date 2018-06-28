@@ -38,5 +38,4 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.ruffian.library:RTextView:1.0.9'
     androidTestImplementation 'junit:junit:4.12'
-    androidTestImplementation 'junit:junit:4.12'
 }

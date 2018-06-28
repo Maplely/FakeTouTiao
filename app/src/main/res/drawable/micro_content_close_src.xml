@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="50dp"
+    android:height="30dp"
+    android:viewportHeight="33"
+    android:viewportWidth="50">
+    <path
+        android:name="micro_path1_close_src"
+        android:pathData="M15,0
+        H30
+        Q40,0 40,5
+        V20,
+        Q40,30 35,30
+        H15
+        Q10,30 10,25
+        V5
+        Q10,0 15,0
+        M15,5
+        L35,25
+        M15,25
+        L35,5
+        "
+        android:strokeColor="@color/color_000000"
+        android:strokeWidth="1"
+        />
+
+</vector>

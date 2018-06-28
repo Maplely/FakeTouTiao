@@ -16,7 +16,7 @@ import toutiao.fake.com.faketoutiao.ui.widget.MicroTiaoHotView;
 /**
  * Created by lihaitao on 2018/6/12.
  */
-public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder> {
+public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int type_hot = 1;
     private static final int type_content = 2;
     private static final int type_foot = 3;
@@ -46,7 +46,7 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
 
     @NonNull
     @Override
-    public MicroHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == type_header) {
             if (mHeaderView != null) {
                 return new MicroHolder(mHeaderView);
@@ -60,7 +60,7 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
                 return new MicroHolder(mFooterView);
             }
         }
-        return new MicroHolder(new View(parent.getContext()));
+        return new MicroContentHolder(new View(parent.getContext()));
     }
 
     public void setContentData(List<MicroContentBean> dataList) {
@@ -77,7 +77,7 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MicroHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
     }
 
@@ -114,6 +114,11 @@ public class MicroAdapter extends RecyclerView.Adapter<MicroAdapter.MicroHolder>
 
     static class MicroHolder extends RecyclerView.ViewHolder {
         MicroHolder(View itemView) {
+            super(itemView);
+        }
+    }
+    static class MicroContentHolder extends RecyclerView.ViewHolder{
+         MicroContentHolder(View itemView) {
             super(itemView);
         }
     }

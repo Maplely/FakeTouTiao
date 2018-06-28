@@ -14,7 +14,7 @@ public class CachePool<T> {
         this(5);
     }
 
-    public CachePool(int size) {
+    private CachePool(int size) {
         mPool = (WeakReference<T>[]) Array.newInstance(WeakReference.class, size);
     }
 
