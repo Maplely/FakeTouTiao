@@ -127,10 +127,10 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             } else {
                 holder1.v_image.setVisibility(View.INVISIBLE);
             }
-            if (TextUtils.isEmpty(contentBean.time)) {
+            if (Util.isNotNUll(contentBean.time)) {
                 holder1.title_time.setText(contentBean.time);
             }
-            if (TextUtils.isEmpty(contentBean.alais)) {
+            if (Util.isNotNUll(contentBean.alais)) {
                 holder1.title_alais.setText(contentBean.alais);
             }
             if (contentBean.label.equals("1")) {
@@ -171,6 +171,8 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 int lineCount = des_content.getLayout().getLineCount();
                 if (lineCount > MTEXTV_MAX_LINE) {
                     des_content.setMaxLines(MMAXLINES_SHOW);
+                }else{
+                    des_content.setMaxLines(Integer.MAX_VALUE);
                 }
             }
         });
@@ -238,7 +240,7 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     private int getRealPos(int i) {
-        return getItemCount() - (mHeaderView == null ? 0 : 1) - (mHotView == null ? 0 : 1) - 1;
+        return getItemCount() - (mHeaderView == null ? 0 : 1) - (mHotView == null ? 0 : 1) - (i-1);
     }
 
     static class MicroHolder extends RecyclerView.ViewHolder {

@@ -36,30 +36,6 @@ public class MicroPresenter implements MicroContract.IPresenter {
 
     @Override
     public void loadContentData() {
-//        mMicroModel.firstLoadContentData().subscribe(
-//            new Observer<List<MicroContentBean>>() {
-//                @Override
-//                public void onSubscribe(Disposable d) {
-//
-//
-//                }
-//                @Override
-//                public void onNext(List<MicroContentBean> microBeans) {
-//                    if(microBeans.size()==0){
-//                        mView.onEmpty();
-//                    }else{
-//                        mView.setContentData(microBeans);
-//                    }
-//                }
-//                @Override
-//                public void onError(Throwable e) {
-//                    mView.onError();
-//                }
-//                @Override
-//                public void onComplete() {
-//
-//                }
-//            });
         //假数据
         List<MicroContentBean> mLists = new ArrayList<>();
         Random random = new Random();
