@@ -1,17 +1,25 @@
 package toutiao.fake.com.faketoutiao.ui.adpater;
 
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroContentBean;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
 import toutiao.fake.com.faketoutiao.ui.widget.MicroTiaoHotView;
+import toutiao.fake.com.faketoutiao.ui.widget.NineGridImage;
 
 /**
  * Created by lihaitao on 2018/6/12.
@@ -83,8 +91,9 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return (mHeaderView == null ? 0 : 1) + (mHotView == null ? 0 : 1) + (mFooterView == null ? 0 : 1) + (mContentData
-            == null ? 0 : mContentData.size());
+        return (mHeaderView == null ? 0 : 1) + (mHotView == null ? 0 : 1) + (mFooterView == null ? 0 : 1) +
+            (mContentData
+                == null ? 0 : mContentData.size());
     }
 
     @Override
@@ -113,12 +122,37 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     static class MicroHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.micro_content_title_iv)
+        ImageView title_im;
+        @BindView(R.id.micron_content_tiltle_v_iv)
+        ImageView v_image;
+        @BindView(R.id.micro_content_title_tv)
+        TextView title_tv;
+        @BindView(R.id.micro_content_title_time)
+        TextView title_time;
+        @BindView(R.id.micro_content_title_alais)
+        TextView title_alais;
+        @BindView(R.id.micro_content_title_close_tv)
+        Button title_close_tv;
+        @BindView(R.id.micro_content_title_follow_tv)
+        TextView follow_tv;
+        @BindView(R.id.micro_content_title_labal_iv)
+        ImageView labal_iv;
+        @BindView(R.id.micro_content_recommand_vp)
+        ViewPager recommand_vp;
+        @BindView(R.id.micro_content_des_tv)
+        TextView des_content;
+        @BindView(R.id.micro_content_pic_show)
+        NineGridImage pic_show;
+
         MicroHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
-    static class MicroContentHolder extends RecyclerView.ViewHolder{
-         MicroContentHolder(View itemView) {
+
+    static class MicroContentHolder extends RecyclerView.ViewHolder {
+        MicroContentHolder(View itemView) {
             super(itemView);
         }
     }
