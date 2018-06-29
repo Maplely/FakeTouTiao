@@ -1,7 +1,10 @@
 package toutiao.fake.com.faketoutiao.ui.adpater;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -163,19 +166,22 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     /**
      * 检查并设置textview行数
      */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void checkAndSetContent(final TextView des_content) {
         ViewTreeObserver viewTreeObserver = des_content.getViewTreeObserver();
-        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        viewTreeObserver.addOnDrawListener(new ViewTreeObserver.OnDrawListener() {
             @Override
-            public void onGlobalLayout() {
+            public void onDraw() {
                 int lineCount = des_content.getLayout().getLineCount();
                 if (lineCount > MTEXTV_MAX_LINE) {
                     des_content.setMaxLines(MMAXLINES_SHOW);
-                }else{
+                }
+                else{
                     des_content.setMaxLines(Integer.MAX_VALUE);
                 }
             }
         });
+
     }
 
     @Override

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
               android:orientation="vertical">
 
     <RelativeLayout
@@ -45,8 +45,11 @@
 
         <TextView
             android:id="@+id/micro_content_title_alais"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/micro_content_title_labal_iv"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:layout_alignBottom="@id/micro_content_title_iv"
             android:layout_marginLeft="3dp"
             android:layout_toRightOf="@+id/micro_content_title_time"
@@ -99,6 +102,7 @@
         android:layout_height="wrap_content"/>
     <toutiao.fake.com.faketoutiao.ui.widget.NineGridImage
         android:id="@+id/micro_content_pic_show"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

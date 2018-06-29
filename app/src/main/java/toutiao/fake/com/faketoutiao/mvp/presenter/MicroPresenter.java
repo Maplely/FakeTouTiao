@@ -39,7 +39,7 @@ public class MicroPresenter implements MicroContract.IPresenter {
         //假数据
         List<MicroContentBean> mLists = new ArrayList<>();
         Random random = new Random();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 10; i++) {
             MicroContentBean bean = new MicroContentBean();
             bean.title = makeRandomData(Constants.title, random);
             bean.label = makeRandomData(Constants.label, random);
@@ -49,9 +49,9 @@ public class MicroPresenter implements MicroContract.IPresenter {
             bean.content = makeRandomData(Constants.content_text, random);
             List<String> mlists = new ArrayList<>();
             for (int j = 0; j < random.nextInt(9); j++) {
-                mlists.add(makeRandomData(Constants.content_pic_url,random));
+                mlists.add(makeRandomData(Constants.content_pic_url, random));
             }
-            bean.content_pic_url=mlists;
+            bean.content_pic_url = mlists;
             mLists.add(bean);
         }
         mView.setContentData(mLists);

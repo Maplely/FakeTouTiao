@@ -59,6 +59,7 @@
 
     <toutiao.fake.com.faketoutiao.ui.widget.PullLoadRecyclerview
         android:id="@+id/micro_rv"
+        android:background="@color/color_99FFFFFF"
         android:overScrollMode="never"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
