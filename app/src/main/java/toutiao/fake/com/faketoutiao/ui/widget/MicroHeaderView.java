@@ -32,6 +32,7 @@ public class MicroHeaderView extends FrameLayout {
     TextView fresh_title;
     @BindView(R.id.fresh_img)
     ImageView fresh_img;
+    private boolean flag=true;
     private Context mContext;
     private AnimatedVectorDrawable mDrawable;
     private MicroHeaderView.onHeaderFinish onHeaderFinish;
@@ -65,14 +66,17 @@ public class MicroHeaderView extends FrameLayout {
 
     public void freshing() {
         //利用handler实现循环播放
+        flag=true;
         final Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
+                if(flag){
                 if (!mDrawable.isRunning()) {
                     mDrawable.start();
                 }
-                handler.postDelayed(this,1200);
+                handler.postDelayed(this,900);
+                }
             }
         };
         handler.postDelayed(runnable,0);
@@ -85,6 +89,7 @@ public class MicroHeaderView extends FrameLayout {
         if (mDrawable.isRunning()) {
             mDrawable.stop();
         }
+        flag=false;
         finish_tv.setText("今日头条推荐引擎有9条更新");
         finish_tv.setVisibility(View.VISIBLE);
         freshing_ll.setVisibility(View.GONE);

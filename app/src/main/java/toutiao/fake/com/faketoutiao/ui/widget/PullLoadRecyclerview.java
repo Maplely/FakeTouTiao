@@ -6,7 +6,6 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -87,7 +86,6 @@ public class PullLoadRecyclerview extends RecyclerView {
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 rawY = (int) e.getRawY();
-                Log.e("TTT", "down");
                 return true;
             case MotionEvent.ACTION_UP:
                 if (mCurrentDrag) {
