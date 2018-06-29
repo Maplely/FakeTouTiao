@@ -1,14 +1,20 @@
 package toutiao.fake.com.faketoutiao.ui.adpater;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +26,8 @@ import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroContentBean;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
 import toutiao.fake.com.faketoutiao.ui.widget.MicroTiaoHotView;
 import toutiao.fake.com.faketoutiao.ui.widget.NineGridImage;
+import toutiao.fake.com.faketoutiao.utils.ImageLoader;
+import toutiao.fake.com.faketoutiao.utils.Util;
 
 /**
  * Created by lihaitao on 2018/6/12.
@@ -29,9 +37,22 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private static final int type_content = 2;
     private static final int type_foot = 3;
     private static final int type_header = 4;
-    private List mContentData = new ArrayList();
+    private List<MicroContentBean> mContentData = new ArrayList();
     private MicroTiaoHotView mHotView;
     private static final String TAG = "MicroAdapter";
+    private Context mContext;
+    /**
+     * textview 最大显示行数
+     */
+    private static final int MMAXLINES_SHOW = 5;
+    /**
+     * textview 最大判断行数
+     */
+    private final static int MTEXTV_MAX_LINE = 10;
+
+    public MicroAdapter(Context context) {
+        mContext = context;
+    }
 
     public View getHeaderView() {
         return mHeaderView;
@@ -68,7 +89,9 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 return new MicroHolder(mFooterView);
             }
         }
-        return new MicroContentHolder(new View(parent.getContext()));
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_micro_content_item, parent,
+            false);
+        return new MicroContentHolder(view);
     }
 
     public void setContentData(List<MicroContentBean> dataList) {
@@ -86,14 +109,70 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (mContentData == null || mContentData.size() == 0) {
+            return;
+        }
+        if (holder instanceof MicroContentHolder) {
 
+        } else if (holder instanceof MicroHolder) {
+            MicroContentHolder holder1 = (MicroContentHolder) holder;
+            MicroContentBean contentBean = mContentData.get(getRealPos(position));
+            ImageLoader.setRoundBitmapFromUrl(contentBean.title_pic_url, holder1.title_im);
+            if (!TextUtils.isEmpty(contentBean.title)) {
+                holder1.title_tv.setText(contentBean.title);
+            }
+            if (contentBean.isV.equals("1")) {
+                holder1.v_image.setVisibility(View.VISIBLE);
+            } else {
+                holder1.v_image.setVisibility(View.INVISIBLE);
+            }
+            if (TextUtils.isEmpty(contentBean.time)) {
+                holder1.title_time.setText(contentBean.time);
+            }
+            if (TextUtils.isEmpty(contentBean.alais)) {
+                holder1.title_alais.setText(contentBean.alais);
+            }
+            if (contentBean.label.equals("1")) {
+                holder1.labal_iv.setVisibility(View.VISIBLE);
+            } else {
+                holder1.labal_iv.setVisibility(View.GONE);
+            }
+            if (Util.isNotNUll(contentBean.content)) {
+                holder1.des_content.setText(contentBean.content);
+                checkAndSetContent(holder1.des_content);
+            }
+            if (Util.isNotNUll(contentBean.content_pic_url)) {
+                RequestOptions options = new RequestOptions().placeholder(R.drawable.big_loadpic_full_listpage).error(R
+                    .drawable.icon_error);
+                DrawableTransitionOptions drawableTransitionOptions = new DrawableTransitionOptions().crossFade();
+                NineGridAdapterImp gridAdapterImp = new NineGridAdapterImp(mContext, contentBean.content_pic_url,
+                    options, drawableTransitionOptions);
+                holder1.pic_show.setImageDataAndRelayout(gridAdapterImp);
+                holder1.pic_show.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+            }
+
+        }
+    }
+
+    /**
+     * 检查并设置textview行数
+     */
+    private void checkAndSetContent(TextView des_content) {
+        int lineCount = des_content.getLayout().getLineCount();
+        if (lineCount > MTEXTV_MAX_LINE) {
+            des_content.setMaxLines(MMAXLINES_SHOW);
+        }
     }
 
     @Override
     public int getItemCount() {
         return (mHeaderView == null ? 0 : 1) + (mHotView == null ? 0 : 1) + (mFooterView == null ? 0 : 1) +
-            (mContentData
-                == null ? 0 : mContentData.size());
+            (mContentData == null ? 0 : mContentData.size());
     }
 
     @Override
@@ -121,7 +200,7 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         notifyDataSetChanged();
     }
 
-    static class MicroHolder extends RecyclerView.ViewHolder {
+    static class MicroContentHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.micro_content_title_iv)
         ImageView title_im;
         @BindView(R.id.micron_content_tiltle_v_iv)
@@ -145,14 +224,18 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         @BindView(R.id.micro_content_pic_show)
         NineGridImage pic_show;
 
-        MicroHolder(View itemView) {
+        MicroContentHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
     }
 
-    static class MicroContentHolder extends RecyclerView.ViewHolder {
-        MicroContentHolder(View itemView) {
+    private int getRealPos(int i) {
+        return getItemCount() - (mHeaderView == null ? 0 : 1) - (mHotView == null ? 0 : 1);
+    }
+
+    static class MicroHolder extends RecyclerView.ViewHolder {
+        MicroHolder(View itemView) {
             super(itemView);
         }
     }

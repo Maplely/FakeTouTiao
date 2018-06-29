@@ -3,7 +3,7 @@ package toutiao.fake.com.faketoutiao.others;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Array;
 
-/**
+/**缓存池
  * Created by lihaitao on 2018/6/27.
  */
 public class CachePool<T> {

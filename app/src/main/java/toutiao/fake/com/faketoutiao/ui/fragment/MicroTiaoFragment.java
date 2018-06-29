@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -66,7 +68,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initView() {
-        mMicroAdapter = new MicroAdapter();
+        mMicroAdapter = new MicroAdapter(getActivity());
         mMicroAdapter.addHotView(new MicroTiaoHotView(getActivity()));
         mMicroAdapter.setHeaderView(new MicroHeaderView(getActivity()));
         micro_rv.setAdapter(mMicroAdapter);
@@ -81,13 +83,22 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
                 },3000);
             }
         });
-
-
         micro_rv.setLayoutManager(new LinearLayoutManager(getActivity()){
             @Override
             public RecyclerView.LayoutParams generateDefaultLayoutParams() {
                 return new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
+            }
+        });
+        micro_rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if(newState==RecyclerView.SCROLL_STATE_IDLE){
+                    Glide.with(getActivity()).resumeRequests();
+                }else{
+                    Glide.with(getActivity()).pauseAllRequests();
+                }
             }
         });
     }

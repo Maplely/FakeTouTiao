@@ -93,6 +93,7 @@
         android:layout_margin="10dp"
         android:ellipsize="end"
         android:text="adasd"
+        android:lineSpacingExtra="2dp"
         android:id="@+id/micro_content_des_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
