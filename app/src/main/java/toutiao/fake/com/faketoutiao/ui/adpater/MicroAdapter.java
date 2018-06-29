@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -112,9 +113,9 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         if (mContentData == null || mContentData.size() == 0) {
             return;
         }
-        if (holder instanceof MicroContentHolder) {
+        if (holder instanceof MicroHolder) {
 
-        } else if (holder instanceof MicroHolder) {
+        } else if (holder instanceof MicroContentHolder) {
             MicroContentHolder holder1 = (MicroContentHolder) holder;
             MicroContentBean contentBean = mContentData.get(getRealPos(position));
             ImageLoader.setRoundBitmapFromUrl(contentBean.title_pic_url, holder1.title_im);
@@ -162,11 +163,17 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     /**
      * 检查并设置textview行数
      */
-    private void checkAndSetContent(TextView des_content) {
-        int lineCount = des_content.getLayout().getLineCount();
-        if (lineCount > MTEXTV_MAX_LINE) {
-            des_content.setMaxLines(MMAXLINES_SHOW);
-        }
+    private void checkAndSetContent(final TextView des_content) {
+        ViewTreeObserver viewTreeObserver = des_content.getViewTreeObserver();
+        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int lineCount = des_content.getLayout().getLineCount();
+                if (lineCount > MTEXTV_MAX_LINE) {
+                    des_content.setMaxLines(MMAXLINES_SHOW);
+                }
+            }
+        });
     }
 
     @Override
@@ -231,7 +238,7 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     private int getRealPos(int i) {
-        return getItemCount() - (mHeaderView == null ? 0 : 1) - (mHotView == null ? 0 : 1);
+        return getItemCount() - (mHeaderView == null ? 0 : 1) - (mHotView == null ? 0 : 1) - 1;
     }
 
     static class MicroHolder extends RecyclerView.ViewHolder {

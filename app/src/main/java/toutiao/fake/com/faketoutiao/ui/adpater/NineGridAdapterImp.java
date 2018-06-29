@@ -52,6 +52,6 @@ public class NineGridAdapterImp implements NineGridImage.NineGridAdapter<String>
         }
         String url= imageBeans.get(position);
         Glide.with(mContext).load(url).apply(mOptions).transition(mTransitionOptions).into(imageView);
-        return null;
+        return imageView;
     }
 }

@@ -64,6 +64,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
     private void initData() {
         mPresenter = new MicroPresenter(this);
         mPresenter.loadHotData();
+        mPresenter.loadContentData();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -97,7 +98,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
                 if(newState==RecyclerView.SCROLL_STATE_IDLE){
                     Glide.with(getActivity()).resumeRequests();
                 }else{
-                    Glide.with(getActivity()).pauseAllRequests();
+                    Glide.with(getActivity()).pauseRequests();
                 }
             }
         });

@@ -11,7 +11,7 @@ import java.util.Map;
 public class Util {
     public static boolean isNotNUll(Object o){
         if(o instanceof  String){
-            return TextUtils.isEmpty((CharSequence) o);
+            return ! TextUtils.isEmpty((CharSequence) o);
         }else if(o instanceof List){
             return (List)o!=null&& ((List) o).size()>0;
         }else if(o instanceof Map){
