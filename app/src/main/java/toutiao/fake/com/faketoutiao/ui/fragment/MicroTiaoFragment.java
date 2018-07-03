@@ -81,6 +81,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
                     @Override
                     public void run() {
                         micro_rv.stopFresh();
+                        mPresenter.loadContentData();
                     }
                 },3000);
             }
