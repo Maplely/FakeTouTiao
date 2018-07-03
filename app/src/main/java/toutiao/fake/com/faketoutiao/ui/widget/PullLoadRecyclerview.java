@@ -86,12 +86,10 @@ public class PullLoadRecyclerview extends RecyclerView {
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 rawY = (int) e.getRawY();
-                return true;
             case MotionEvent.ACTION_UP:
                 if (mCurrentDrag) {
                     restorReshView();
                 }
-                return true;
             case MotionEvent.ACTION_MOVE:
                 if (canScrollVertically(-1) || mCurrent_status == STATUS_FRESHING || mCurrent_status == STATUS_RESET) {
                     return super.onTouchEvent(e);

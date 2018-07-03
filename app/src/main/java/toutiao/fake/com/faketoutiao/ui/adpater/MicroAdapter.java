@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -16,6 +15,7 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
@@ -30,6 +30,7 @@ import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroContentBean;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
 import toutiao.fake.com.faketoutiao.ui.widget.MicroTiaoHotView;
 import toutiao.fake.com.faketoutiao.ui.widget.NineGridImage;
+import toutiao.fake.com.faketoutiao.ui.widget.NineGridImage.OnImageClickListener;
 import toutiao.fake.com.faketoutiao.utils.ImageLoader;
 import toutiao.fake.com.faketoutiao.utils.Util;
 
@@ -120,7 +121,7 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         } else if (holder instanceof MicroContentHolder) {
             MicroContentHolder holder1 = (MicroContentHolder) holder;
-            MicroContentBean contentBean = mContentData.get(getRealPos(position));
+            final MicroContentBean contentBean = mContentData.get(getRealPos(position));
             ImageLoader.setRoundBitmapFromUrl(contentBean.title_pic_url, holder1.title_im);
             if (!TextUtils.isEmpty(contentBean.title)) {
                 holder1.title_tv.setText(contentBean.title);
@@ -152,10 +153,10 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 NineGridAdapterImp gridAdapterImp = new NineGridAdapterImp(mContext, contentBean.content_pic_url,
                     options, drawableTransitionOptions);
                 holder1.pic_show.setImageDataAndRelayout(gridAdapterImp);
-                holder1.pic_show.setOnClickListener(new View.OnClickListener() {
+                holder1.pic_show.setOnItemClick(new OnImageClickListener(){
                     @Override
-                    public void onClick(View v) {
-
+                    public void OnItemClick(int position, View view) {
+                        Toast.makeText(mContext, "被点击："+contentBean.content_pic_url.size(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

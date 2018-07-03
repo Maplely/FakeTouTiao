@@ -42,7 +42,7 @@ public class NineGridImage extends ViewGroup implements ViewGroup.OnHierarchyCha
         initView(context);
     }
 
-    public void setOnClickListener(OnImageClickListener listener) {
+    public void setOnItemClick(OnImageClickListener listener) {
         mListener = listener;
     }
 
@@ -148,7 +148,8 @@ public class NineGridImage extends ViewGroup implements ViewGroup.OnHierarchyCha
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mListener.OnItemClick(count, v);
+                        mListener.OnItemClick(count, v);
+
                 }
             });
         }
@@ -179,7 +180,7 @@ public class NineGridImage extends ViewGroup implements ViewGroup.OnHierarchyCha
         int minWith = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
         int width = resolveSizeAndState(minWith, widthMeasureSpec, 1);
         int avaibleWith = width - getPaddingLeft() - getPaddingRight();
-        mPic_width = avaibleWith - (mColumns - 1) * mSpace;
+        mPic_width = (avaibleWith - (mColumns - 1) * mSpace) / mColumns;
         mPic_height = mPic_width;
         int all_height = mPic_height * mRows + (mRows - 1) * mSpace;
         setMeasuredDimension(avaibleWith, all_height);
@@ -201,7 +202,7 @@ public class NineGridImage extends ViewGroup implements ViewGroup.OnHierarchyCha
         View getItemView(int position, View oldView);
     }
 
-     interface OnImageClickListener {
+    public interface OnImageClickListener {
         void OnItemClick(int position, View view);
     }
 }
