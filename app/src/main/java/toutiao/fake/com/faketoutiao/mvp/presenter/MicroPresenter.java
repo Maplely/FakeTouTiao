@@ -48,7 +48,8 @@ public class MicroPresenter implements MicroContract.IPresenter {
             bean.alais = makeRandomData(Constants.alias, random);
             bean.content = makeRandomData(Constants.content_text, random);
             List<String> mlists = new ArrayList<>();
-            for (int j = 0; j < random.nextInt(9); j++) {
+            int i1 = random.nextInt(9) ;
+            for (int j = 0; j < i1; j++) {
                 mlists.add(makeRandomData(Constants.content_pic_url, random));
             }
             bean.content_pic_url = mlists;

@@ -114,21 +114,15 @@ public class NineGridImage extends ViewGroup implements ViewGroup.OnHierarchyCha
             mRows = 1;
         } else if (size < 7) {
             mRows = 2;
-            if (size == 6) {
-                mColumns = 3;
-            } else if (size == 4) {
+            if (size == 4) {
                 mColumns = 2;
             } else {
-                mColumns = size % 3;
+                mColumns = 3;
             }
         } else {
             size = Math.min(size, 9);
             mRows = 3;
-            if (size == 9) {
-                mColumns = 3;
-            } else {
-                mColumns = size % 3;
-            }
+            mColumns = 3;
         }
     }
 
@@ -148,7 +142,7 @@ public class NineGridImage extends ViewGroup implements ViewGroup.OnHierarchyCha
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                        mListener.OnItemClick(count, v);
+                    mListener.OnItemClick(count, v);
 
                 }
             });

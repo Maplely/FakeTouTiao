@@ -104,6 +104,7 @@
     <toutiao.fake.com.faketoutiao.ui.widget.NineGridImage
         android:id="@+id/micro_content_pic_show"
         android:visibility="visible"
+        android:layout_margin="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -21,7 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
         NineGridImage nineGridImage = new NineGridImage(appContext);
-        nineGridImage.calRowAndCol(3);
-        System.out.println("ada");
+        nineGridImage.calRowAndCol(5);
     }
 }
