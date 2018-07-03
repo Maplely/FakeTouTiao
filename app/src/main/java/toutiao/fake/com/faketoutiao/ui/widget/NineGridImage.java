@@ -139,9 +139,9 @@ public class NineGridImage extends ViewGroup implements ViewGroup.OnHierarchyCha
             ImageView view = (ImageView) getChildAt(i);
             int rows = i / mColumns;
             int col = i % mColumns;
-            int left = getPaddingLeft() + (mSpace + mPic_width) * rows;
+            int left = getPaddingLeft() + (mSpace + mPic_width) * col;
             int right = left + mPic_width + getPaddingRight();
-            int top = getPaddingTop() + (mSpace + mPic_height) * col;
+            int top = getPaddingTop() + (mSpace + mPic_height) * rows;
             int bottom = top + mPic_height + getPaddingBottom();
             view.layout(left, top, right, bottom);
             final int count = i;

@@ -147,7 +147,7 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 checkAndSetContent(holder1.des_content);
             }
             if (Util.isNotNUll(contentBean.content_pic_url)) {
-                RequestOptions options = new RequestOptions().placeholder(R.drawable.big_loadpic_full_listpage).error(R
+                RequestOptions options = new RequestOptions().centerCrop().placeholder(R.drawable.big_loadpic_full_listpage).error(R
                     .drawable.icon_error);
                 DrawableTransitionOptions drawableTransitionOptions = new DrawableTransitionOptions().crossFade();
                 NineGridAdapterImp gridAdapterImp = new NineGridAdapterImp(mContext, contentBean.content_pic_url,
