@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewConfigurationCompat;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -39,7 +40,6 @@ public class PullLoadRecyclerview extends RecyclerView {
     private ValueAnimator mAnimator;
     private Context mContext;
     private int mTouchSlop;
-
     public PullLoadRecyclerview(Context context) {
         this(context, null);
     }
@@ -56,6 +56,7 @@ public class PullLoadRecyclerview extends RecyclerView {
 
     private void init() {
         mTouchSlop = ViewConfiguration.get(mContext).getScaledTouchSlop();
+
     }
 
     public void setOnFreshListener(onFreshListener freshListener) {
