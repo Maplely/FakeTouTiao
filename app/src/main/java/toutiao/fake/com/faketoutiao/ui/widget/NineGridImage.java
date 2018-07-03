@@ -120,7 +120,6 @@ public class NineGridImage extends ViewGroup implements ViewGroup.OnHierarchyCha
                 mColumns = 3;
             }
         } else {
-            size = Math.min(size, 9);
             mRows = 3;
             mColumns = 3;
         }

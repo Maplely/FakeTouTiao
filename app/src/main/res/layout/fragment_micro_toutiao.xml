@@ -8,8 +8,8 @@
         android:id="@+id/micro_follow"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#F4F5F6"
-        android:padding="5dp">
+        android:background="@color/color_FFFFFF"
+        android:padding="3dp">
 
         <ImageView
             android:id="@+id/micro_follow_iv"
@@ -55,6 +55,11 @@
             android:text="发布"
             android:textColor="#000"
             android:textSize="11sp"/>
+        <View
+            android:background="#F4F5F6"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"/>
     </RelativeLayout>
 
     <toutiao.fake.com.faketoutiao.ui.widget.PullLoadRecyclerview

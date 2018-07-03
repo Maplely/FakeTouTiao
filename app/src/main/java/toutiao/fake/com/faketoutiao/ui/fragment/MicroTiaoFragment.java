@@ -41,7 +41,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
     PullLoadRecyclerview micro_rv;
     private MicroAdapter mMicroAdapter;
     private MicroPresenter mPresenter;
-
+    private static int COUNT_FRESH = 6;
 
     @Nullable
     @Override
@@ -81,11 +81,12 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
                     @Override
                     public void run() {
                         micro_rv.stopFresh();
+                        mPresenter.loadContentData();
                     }
-                },3000);
+                }, 3000);
             }
         });
-        micro_rv.setLayoutManager(new LinearLayoutManager(getActivity()){
+        micro_rv.setLayoutManager(new LinearLayoutManager(getActivity()) {
             @Override
             public RecyclerView.LayoutParams generateDefaultLayoutParams() {
                 return new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -97,13 +98,35 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                if(newState==RecyclerView.SCROLL_STATE_IDLE){
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     Glide.with(getActivity()).resumeRequests();
-                }else{
+                } else {
                     Glide.with(getActivity()).pauseRequests();
                 }
             }
         });
+        //添加下拉刷新  利用阈值  当滚动到一定位置时 刷新
+        micro_rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                int pos = layoutManager.findFirstCompletelyVisibleItemPosition();
+                RecyclerView.Adapter adapter = recyclerView.getAdapter();
+                int itemCount = adapter.getItemCount();
+                int childCount = recyclerView.getChildCount();
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && 1== itemCount - pos
+                    && childCount > 0) {
+                    mPresenter.loadContentData();
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
+
     }
 
     @OnClick({R.id.micro_follow_iv, R.id.micro_publish_iv})
