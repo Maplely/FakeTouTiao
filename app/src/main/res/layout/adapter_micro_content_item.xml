@@ -107,4 +107,5 @@
         android:layout_margin="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <include layout="@layout/micro_content_item_bottom_layout"/>
 </LinearLayout>
