@@ -1,6 +1,8 @@
 package toutiao.fake.com.faketoutiao.ui.adpater;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +15,7 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
@@ -27,6 +30,7 @@ import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroContentBean;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
 import toutiao.fake.com.faketoutiao.ui.widget.MicroTiaoHotView;
 import toutiao.fake.com.faketoutiao.ui.widget.NineGridImage;
+import toutiao.fake.com.faketoutiao.ui.widget.NineGridImage.OnImageClickListener;
 import toutiao.fake.com.faketoutiao.utils.ImageLoader;
 import toutiao.fake.com.faketoutiao.utils.Util;
 
@@ -117,7 +121,7 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         } else if (holder instanceof MicroContentHolder) {
             MicroContentHolder holder1 = (MicroContentHolder) holder;
-            MicroContentBean contentBean = mContentData.get(getRealPos(position));
+            final MicroContentBean contentBean = mContentData.get(getRealPos(position));
             ImageLoader.setRoundBitmapFromUrl(contentBean.title_pic_url, holder1.title_im);
             if (!TextUtils.isEmpty(contentBean.title)) {
                 holder1.title_tv.setText(contentBean.title);
@@ -143,16 +147,16 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 checkAndSetContent(holder1.des_content);
             }
             if (Util.isNotNUll(contentBean.content_pic_url)) {
-                RequestOptions options = new RequestOptions().placeholder(R.drawable.big_loadpic_full_listpage).error(R
+                RequestOptions options = new RequestOptions().centerCrop().placeholder(R.drawable.big_loadpic_full_listpage).error(R
                     .drawable.icon_error);
                 DrawableTransitionOptions drawableTransitionOptions = new DrawableTransitionOptions().crossFade();
                 NineGridAdapterImp gridAdapterImp = new NineGridAdapterImp(mContext, contentBean.content_pic_url,
                     options, drawableTransitionOptions);
                 holder1.pic_show.setImageDataAndRelayout(gridAdapterImp);
-                holder1.pic_show.setOnClickListener(new View.OnClickListener() {
+                holder1.pic_show.setOnItemClick(new OnImageClickListener(){
                     @Override
-                    public void onClick(View v) {
-
+                    public void OnItemClick(int position, View view) {
+                        Toast.makeText(mContext, "被点击："+contentBean.content_pic_url.size(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -163,19 +167,22 @@ public class MicroAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     /**
      * 检查并设置textview行数
      */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void checkAndSetContent(final TextView des_content) {
         ViewTreeObserver viewTreeObserver = des_content.getViewTreeObserver();
-        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        viewTreeObserver.addOnDrawListener(new ViewTreeObserver.OnDrawListener() {
             @Override
-            public void onGlobalLayout() {
+            public void onDraw() {
                 int lineCount = des_content.getLayout().getLineCount();
                 if (lineCount > MTEXTV_MAX_LINE) {
                     des_content.setMaxLines(MMAXLINES_SHOW);
-                }else{
+                }
+                else{
                     des_content.setMaxLines(Integer.MAX_VALUE);
                 }
             }
         });
+
     }
 
     @Override

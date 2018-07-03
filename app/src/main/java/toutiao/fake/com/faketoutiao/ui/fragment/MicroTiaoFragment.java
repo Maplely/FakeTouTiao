@@ -30,6 +30,7 @@ import toutiao.fake.com.faketoutiao.ui.base.BaseFragment;
 import toutiao.fake.com.faketoutiao.ui.widget.MicroHeaderView;
 import toutiao.fake.com.faketoutiao.ui.widget.MicroTiaoHotView;
 import toutiao.fake.com.faketoutiao.ui.widget.PullLoadRecyclerview;
+import toutiao.fake.com.faketoutiao.ui.widget.SimpleDecoration;
 
 /**
  * Created by lihaitao on 2018/6/12.
@@ -91,6 +92,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
                     ViewGroup.LayoutParams.WRAP_CONTENT);
             }
         });
+        micro_rv.addItemDecoration(new SimpleDecoration());
         micro_rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
