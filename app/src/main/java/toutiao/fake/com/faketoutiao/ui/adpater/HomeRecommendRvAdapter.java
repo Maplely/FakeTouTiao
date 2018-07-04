@@ -6,13 +6,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.RecommendNewsBean;
+import toutiao.fake.com.faketoutiao.utils.CircleImageView;
+import toutiao.fake.com.faketoutiao.utils.ImageLoader;
 
 public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
@@ -22,8 +27,13 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     private static final int TYPE_3 = 3;
     private static final int TYPE_4 = 4;
     private static final int TYPE_5 = 5;
+    private static final int TYPE_6 = 6;
+    private static final int TYPE_7 = 7;
+    private static final int TYPE_8 = 8;
     private static final int TYPE_FOOTER = 0;
     private List<RecommendNewsBean> recommendNewsBeanList;
+
+    private boolean isOneImage;
 
     public HomeRecommendRvAdapter(Context context) {
         this.context = context;
@@ -47,6 +57,12 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 return TYPE_4;
             case 5:
                 return TYPE_5;
+            case 6:
+                return TYPE_6;
+            case 7:
+                return TYPE_7;
+            case 8:
+                return TYPE_8;
         }
         return TYPE_FOOTER;
     }
@@ -75,8 +91,20 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 return viewHolder;
             case TYPE_5:
                 view = LayoutInflater.from(context).inflate(R.layout.home_layout_item_type5,parent,false);
-                viewHolder = new RecommendViewHolderType4(view);
+                viewHolder = new RecommendViewHolderType5(view);
                 return viewHolder;
+            case TYPE_6:
+                view = LayoutInflater.from(context).inflate(R.layout.home_layout_item_type6,parent,false);
+                viewHolder = new RecommendViewHolderType6(view);
+                return viewHolder;
+            case TYPE_7:
+                view = LayoutInflater.from(context).inflate(R.layout.home_layout_item_type7,parent,false);
+                viewHolder = new RecommendViewHolderType7(view);
+                return viewHolder;
+//            case TYPE_8:
+//                view = LayoutInflater.from(context).inflate(R.layout.home_layout_item_type6,parent,false);
+//                viewHolder = new RecommendViewHolderType6(view);
+//                return viewHolder;
         }
         return null;
     }
@@ -95,8 +123,22 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         }else if(holder instanceof RecommendViewHolderType4){
             RecommendViewHolderType4 viewHolderType4 = (RecommendViewHolderType4)holder;
 
-        }else {
+        }else if(holder instanceof RecommendViewHolderType5){
             RecommendViewHolderType5 viewHolderType5 = (RecommendViewHolderType5)holder;
+
+        }else if(holder instanceof RecommendViewHolderType6){
+            RecommendViewHolderType6 viewHolderType6 = (RecommendViewHolderType6)holder;
+            viewHolderType6.authorHeadNameTv.setText(recommendNewsBeanList.get(position).getAuthorHeadName());
+            viewHolderType6.newContentTv.setText(recommendNewsBeanList.get(position).getNewsContent());
+            ImageLoader.setBitmapFromUrl(recommendNewsBeanList.get(position).getAuthorHeadIcon(),viewHolderType6.headIconCiv);
+            ImageLoader.setBitmapFromUrl(recommendNewsBeanList.get(position).getAuthorHeadIcon(),viewHolderType6.oneNewsImageIv);
+
+        }else if(holder instanceof RecommendViewHolderType7){
+            RecommendViewHolderType7 viewHolderType7 = (RecommendViewHolderType7)holder;
+            viewHolderType7.type7TitleTv.setText(recommendNewsBeanList.get(position).getNewsTitle());
+            viewHolderType7.authorHeadNameTv.setText(recommendNewsBeanList.get(position).getAuthorHeadName());
+            ImageLoader.setBitmapFromUrl(recommendNewsBeanList.get(position).getAuthorHeadIcon(),viewHolderType7.headIconCiv);
+            ImageLoader.setBitmapFromUrl(recommendNewsBeanList.get(position).getAuthorHeadIcon(),viewHolderType7.imageIv);
 
         }
     }
@@ -107,6 +149,8 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
 
+
+
     public class RecommendViewHolderType1 extends RecyclerView.ViewHolder{
 
         @BindView(R.id.home_news_type1_title_tv)
@@ -114,9 +158,10 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         public RecommendViewHolderType1 (View itemView) {
             super(itemView);
-
+            ButterKnife.bind(this, itemView);
         }
     }
+
 
     public class RecommendViewHolderType2 extends RecyclerView.ViewHolder{
 
@@ -125,8 +170,10 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         public RecommendViewHolderType2 (View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
+
 
     public class RecommendViewHolderType3 extends RecyclerView.ViewHolder{
 
@@ -135,8 +182,10 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         public RecommendViewHolderType3 (View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
+
 
     public class RecommendViewHolderType4 extends RecyclerView.ViewHolder{
 
@@ -145,8 +194,10 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         public RecommendViewHolderType4 (View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
+
 
     public class RecommendViewHolderType5 extends RecyclerView.ViewHolder{
 
@@ -155,7 +206,50 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         public RecommendViewHolderType5 (View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
+
+    public class RecommendViewHolderType6 extends RecyclerView.ViewHolder{
+
+//        @BindView(R.id.tv_home_item_head_name)
+        TextView authorHeadNameTv;
+
+//        @BindView(R.id.tv_home_type6_cotent)
+        TextView newContentTv;
+
+//        @BindView(R.id.civ_home_item_head_icon)
+        CircleImageView headIconCiv;
+
+        ImageView oneNewsImageIv;
+
+        GridView moreNewsImageGv;
+        public RecommendViewHolderType6(View itemView) {
+            super(itemView);
+            authorHeadNameTv = itemView.findViewById(R.id.tv_home_item_head_name);
+            newContentTv = itemView.findViewById(R.id.tv_home_type6_cotent);
+            headIconCiv = itemView.findViewById(R.id.civ_home_item_head_icon);
+            oneNewsImageIv = itemView.findViewById(R.id.iv_home_type6_one_image);
+            moreNewsImageGv = itemView.findViewById(R.id.gv_home_type6_more_image);
+        }
+    }
+
+    public class RecommendViewHolderType7 extends RecyclerView.ViewHolder {
+
+        TextView type7TitleTv;
+        TextView authorHeadNameTv;
+        CircleImageView headIconCiv;
+        ImageView oneNewsImageIv;
+        ImageView imageIv;
+
+        public RecommendViewHolderType7(View itemView) {
+            super(itemView);
+            type7TitleTv = itemView.findViewById(R.id.tv_home_type7_news_title);
+            authorHeadNameTv = itemView.findViewById(R.id.tv_home_item_head_name);
+            headIconCiv = itemView.findViewById(R.id.civ_home_item_head_icon);
+            oneNewsImageIv = itemView.findViewById(R.id.iv_home_type6_one_image);
+            imageIv = itemView.findViewById(R.id.iv_home_type7_image);
+        }
+    }
 }

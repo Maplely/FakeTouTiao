@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp">
+        <toutiao.fake.com.faketoutiao.utils.CircleImageView
+            android:id="@+id/civ_home_item_head_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_home_item_head_isvip"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/home_layout_item_circle"
+            android:layout_alignBottom="@+id/civ_home_item_head_icon"
+            android:layout_alignRight="@+id/civ_home_item_head_icon"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/iv_home_item_head_isvip"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/all_newv_small"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_home_item_head_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="好戏看不停"
+            android:textColor="@color/color_FF141414"
+            android:textStyle="bold"
+            android:layout_alignTop="@+id/civ_home_item_head_icon"
+            android:layout_toRightOf="@+id/civ_home_item_head_icon"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tv_home_item_time_and_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="前天 19小时前· 头条影视视频作者"
+            android:layout_below="@+id/tv_home_item_head_name"
+            android:layout_alignLeft="@+id/tv_home_item_head_name"
+            android:layout_marginTop="4dp"
+            android:textSize="11sp"/>
+
+        <ImageView
+            android:id="@+id/iv_home_item_head_nocare"
+            android:layout_width="20dp"
+            android:layout_height="12dp"
+            android:src="@drawable/home_jd_browser_close"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/tv_home_item_head_name"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/home_layout_item_nocare" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

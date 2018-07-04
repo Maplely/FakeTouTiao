@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/include_home_type7_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/home_layout_item_head"/>
+
+    <TextView
+        android:id="@+id/tv_home_type7_news_title"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/iv_home_type7_image"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:maxLines="2"
+        android:text="网络谣言何时休?去当地的杂货店逛一圈。"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_000000"
+        android:lineSpacingMultiplier="1.2"
+        android:layout_toRightOf="@+id/iv_home_type7_image"
+        android:background="@drawable/home_layout_item_pic_bg"/>
+
+
+    <ImageView
+        android:id="@+id/iv_home_type7_image"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/color_000000"
+        android:layout_below="@+id/include_home_type7_head"/>
+
+    <include
+        android:id="@+id/include_home_type7_bottom"
+        layout="@layout/home_layout_item_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/iv_home_type7_image"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

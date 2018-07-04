@@ -46,13 +46,53 @@ public class HomeFragment extends BaseFragment {
         return view;
     }
 
+    /**
+     *  关注、推荐、北京、视频、新时代、图片、问答、娱乐、财经、健康、特卖、直播
+     */
     public void initData(){
         fragmentList = new ArrayList<>();
         tabTitles = getActivity().getResources().getStringArray(R.array.home_tab);
+
         for(int i = 0;i<tabTitles.length;i++){
-            fragment = new HomeRecommendFragment();
-            fragmentList.add(fragment);
+            if(tabTitles[i].equals("关注")) {
+                HomeAttentionFragment attentionFragment = new HomeAttentionFragment();
+                fragmentList.add(i,attentionFragment);
+            }else if (tabTitles[i].equals("推荐")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }else if (tabTitles[i].equals("北京")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }else if (tabTitles[i].equals("视频")){
+                HomeAttentionFragment attentionFragment = new HomeAttentionFragment();
+                fragmentList.add(i,attentionFragment);
+            }else if (tabTitles[i].equals("新时代")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }else if (tabTitles[i].equals("图片")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }else if (tabTitles[i].equals("问答")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }else if (tabTitles[i].equals("娱乐")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }else if (tabTitles[i].equals("财经")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }else if (tabTitles[i].equals("健康")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }else if (tabTitles[i].equals("特卖")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }else if (tabTitles[i].equals("直播")){
+                HomeRecommendFragment recommendFragment = new HomeRecommendFragment();
+                fragmentList.add(i,recommendFragment);
+            }
         }
+
         homeVpAdapter = new HomeViewPagerAdapter(getFragmentManager());
         homeContentVp.setAdapter(homeVpAdapter);
         homeTabTl.setupWithViewPager(homeContentVp);

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/include_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/home_layout_item_head"/>
+
+    <TextView
+        android:id="@+id/tv_home_type6_cotent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="青年一代有理想、有本领、有担当，国家就有前途、民族就有希望。向广大青年发出了“敢于有梦、勇于追梦、勤于圆梦”的奋斗号令。"
+        android:textColor="@color/color_FF141414"/>
+
+    <ImageView
+        android:id="@+id/iv_home_type6_one_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:background="@color/color_000000"/>
+
+    <GridView
+        android:id="@+id/gv_home_type6_more_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="1dp"
+        android:verticalSpacing="1dp"
+        android:visibility="gone"
+        android:layout_below="@+id/tv_home_type6_cotent"></GridView>
+
+    <include
+        android:id="@+id/include_bottom"
+        layout="@layout/home_layout_item_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+</LinearLayout>
