@@ -41,7 +41,6 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
     PullLoadRecyclerview micro_rv;
     private MicroAdapter mMicroAdapter;
     private MicroPresenter mPresenter;
-    private static int COUNT_FRESH = 6;
 
     @Nullable
     @Override
@@ -115,7 +114,7 @@ public class MicroTiaoFragment extends BaseFragment implements MicroContract.IVi
                 RecyclerView.Adapter adapter = recyclerView.getAdapter();
                 int itemCount = adapter.getItemCount();
                 int childCount = recyclerView.getChildCount();
-                if (newState == RecyclerView.SCROLL_STATE_IDLE && 1== itemCount - pos
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && 4> itemCount - pos
                     && childCount > 0) {
                     mPresenter.loadContentData();
                 }
