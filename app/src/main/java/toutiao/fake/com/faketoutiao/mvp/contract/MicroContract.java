@@ -5,7 +5,7 @@ import java.util.List;
 
 import toutiao.fake.com.faketoutiao.mvp.base.BasePresenter;
 import toutiao.fake.com.faketoutiao.mvp.base.BaseView;
-import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroBean;
+import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroContentBean;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
 
 /**
@@ -13,7 +13,7 @@ import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
  */
 public interface MicroContract {
     interface IView extends BaseView<IPresenter> {
-        void setContentData(List<MicroBean> list1);
+        void setContentData(List<MicroContentBean> list1);
         void setHotData(List<MicroHotBean> list2);
         void onError();
         void onEmpty();

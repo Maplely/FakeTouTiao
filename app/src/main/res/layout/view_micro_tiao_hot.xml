@@ -9,7 +9,7 @@
         android:id="@+id/item_tile"
         android:layout_width="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:scaleType="fitCenter"
         android:src="@drawable/loveicon_textpage"
         android:layout_height="30dp"/>
@@ -31,6 +31,10 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:id="@+id/micro_hot_rv"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
+        android:nestedScrollingEnabled="false"
         android:layout_below="@+id/item_tile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

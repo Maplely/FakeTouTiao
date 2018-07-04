@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_margin="5dp"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/micro_content_title_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <ImageView
+            android:id="@+id/micron_content_tiltle_v_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/micro_content_title_iv"
+            android:layout_alignRight="@id/micro_content_title_iv"
+            android:src="@drawable/micro_content_all_newv"/>
+
+        <TextView
+            android:id="@+id/micro_content_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/micro_content_title_iv"
+            android:gravity="center"
+            android:text="普外科曾医生"
+            android:textColor="@color/color_000000"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/micro_content_title_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/micro_content_title_iv"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/micro_content_title_iv"
+            android:text="06-27 14:04"
+            android:textColor="@color/color_595858"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:id="@+id/micro_content_title_alais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/micro_content_title_labal_iv"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_alignBottom="@id/micro_content_title_iv"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@+id/micro_content_title_time"
+            android:text="·资深金融人士 金融问答专家"
+            android:textSize="12dp"/>
+
+        <Button
+            android:id="@+id/micro_content_title_close_tv"
+            android:layout_width="25dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/micro_content_close_src"/>
+
+        <TextView
+            android:id="@+id/micro_content_title_follow_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/micro_content_title_close_tv"
+            android:text="关注"
+            android:textColor="@color/color_F8EB4248"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/micro_content_title_labal_iv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/micro_content_title_follow_tv"
+            android:rotation="-30"
+            android:scaleType="fitCenter"
+            android:src="@drawable/topic_ask_button"/>
+    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/micro_content_recommand_vp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="gone"
+        />
+    <TextView
+        android:layout_margin="10dp"
+        android:ellipsize="end"
+        android:text="adasd"
+        android:lineSpacingExtra="2dp"
+        android:id="@+id/micro_content_des_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <toutiao.fake.com.faketoutiao.ui.widget.NineGridImage
+        android:id="@+id/micro_content_pic_show"
+        android:visibility="visible"
+        android:layout_margin="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <include layout="@layout/micro_content_item_bottom_layout"/>
+</LinearLayout>
