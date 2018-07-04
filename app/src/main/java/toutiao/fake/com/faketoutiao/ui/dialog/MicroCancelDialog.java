@@ -16,7 +16,7 @@ public class MicroCancelDialog extends DialogFragment {
     private static MicroCancelDialog mCancelDialog;
     private static String WIDTH="width";
     private static String HIGH="high";
-
+    private static final String TAG = "TTT";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +39,11 @@ public class MicroCancelDialog extends DialogFragment {
         int with = arguments.getInt(WIDTH);
         int high = arguments.getInt(HIGH);
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.micro_content_cancal_dialog, null, false);
+        view.measure(0,0);
+        with=with-view.getMeasuredWidth();
+        high=high-view.getMeasuredHeight();
+        with=Math.max(0,with);
+        high=Math.max(0,high);
         Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(view);
         dialog.setCanceledOnTouchOutside(true);
