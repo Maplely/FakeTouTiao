@@ -25,8 +25,11 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     private static final int TYPE_FOOTER = 0;
     private List<RecommendNewsBean> recommendNewsBeanList;
 
-    public HomeRecommendRvAdapter(Context context,List<RecommendNewsBean> recommendNewsBeanList) {
+    public HomeRecommendRvAdapter(Context context) {
         this.context = context;
+    }
+
+    public void setList(List<RecommendNewsBean> recommendNewsBeanList){
         this.recommendNewsBeanList = recommendNewsBeanList;
         notifyDataSetChanged();
     }

@@ -5,6 +5,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroBean;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.MicroHotBean;
+import toutiao.fake.com.faketoutiao.mvp.model.Bean.RecommendNewsBean;
 import toutiao.fake.com.faketoutiao.net.NetManager;
 
 /**
@@ -17,4 +18,10 @@ public class MicroModel {
      public Observable<List<MicroHotBean>> loadHotData(){
         return NetManager.MicroTouTiao().getHotData();
      }
+
+     public Observable<List<RecommendNewsBean>> getRecommendNews(){
+        return NetManager.MicroTouTiao().getRecommendNews();
+     }
+
+
 }
