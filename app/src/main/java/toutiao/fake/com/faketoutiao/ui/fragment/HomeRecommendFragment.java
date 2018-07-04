@@ -34,8 +34,8 @@ public class HomeRecommendFragment extends BaseFragment implements HomeRecommend
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_recommend,container,false);
         ButterKnife.bind(this,view);
-        initData();
         initView();
+        initData();
         return view;
     }
 
@@ -47,7 +47,7 @@ public class HomeRecommendFragment extends BaseFragment implements HomeRecommend
 
     public void initData(){
         mPresenter = new HomeRecommendPresent(this);
-        mPresenter.getRecommendData();
+        mPresenter.getRecommendNews();
     }
 
     @Override

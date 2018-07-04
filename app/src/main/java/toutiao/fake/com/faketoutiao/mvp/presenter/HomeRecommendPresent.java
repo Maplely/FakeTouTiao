@@ -45,7 +45,6 @@ public class HomeRecommendPresent implements HomeRecommendContract.Present {
         });
     }
 
-
     /**
      * 假数据
      */

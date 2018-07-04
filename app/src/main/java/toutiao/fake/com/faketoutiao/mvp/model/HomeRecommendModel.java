@@ -9,6 +9,10 @@ import toutiao.fake.com.faketoutiao.net.NetManager;
 
 public class HomeRecommendModel implements HomeRecommendContract.Model{
 
+    /**
+     * 有错误
+     * @return
+     */
     public Observable<List<RecommendNewsBean>> getRecommendNews(){
         return NetManager.MicroTouTiao().getRecommendNews();
     }
