@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/micro_cancel_dialog_ll_page1"
+              android:layout_width="300dp"
+              android:layout_height="wrap_content"
+              android:background="@drawable/abc_popup_background_mtrl_mult"
+              android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        >
+
+        <ImageView
+            android:id="@+id/micro_cancel_dialog_iv_first"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ask_icon_remind"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/micro_cancel_dialog_iv_first"
+            android:text="不感兴趣"
+            android:textColor="#000"
+            android:textSize="17dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/micro_cancel_dialog_iv_first"
+            android:text="减少这类内容"
+            android:textSize="12dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/micro_cancel_dialog_next"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <ImageView
+            android:id="@+id/micro_cancel_dialog_iv_two"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/add_subscribe_video"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/micro_cancel_dialog_iv_two"
+            android:text="反馈垃圾内容"
+            android:textColor="#000"
+            android:textSize="17dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/micro_cancel_dialog_iv_two"
+            android:text="低俗,标题党等"
+            android:textSize="12dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/comment_arrow_icon1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        >
+
+        <ImageView
+            android:id="@+id/micro_cancel_dialog_iv_three"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/add_subscribe_video"/>
+
+        <TextView
+            android:id="@+id/micro_dialog_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/micro_cancel_dialog_iv_three"
+            android:text="拉黑作者:"
+            android:textColor="#000"
+            android:textSize="17dp"/>
+    </RelativeLayout>
+
+</LinearLayout>
