@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.jzvd.JZVideoPlayer;
 import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.mvp.contract.MainContract;
 import toutiao.fake.com.faketoutiao.ui.fragment.MicroTiaoFragment;
@@ -58,5 +59,19 @@ public class MainActivity extends FragmentActivity implements MainContract.IView
         TextView tab_tv = (TextView) view.findViewById(R.id.tab_tv);
         tab_tv.setText(tab_names[i]);
         return view;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (JZVideoPlayer.backPress()) {
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JZVideoPlayer.releaseAllVideos();
     }
 }

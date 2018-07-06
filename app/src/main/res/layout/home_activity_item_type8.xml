@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.HomeType8Activity">
+
+    <toutiao.fake.com.faketoutiao.utils.MyJZVideoPlayerStandard
+        android:id="@+id/tv_home_type8_content_video"
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:layout_below="@+id/tv_home_type8_cotent"/>
+
+    <include
+        android:id="@+id/include_home_type8_attention_header"
+        layout="@layout/home_layout_attention_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_home_type8_content_video"/>
+
+    <ScrollView
+        android:id="@+id/home_type8_attention_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include_home_type8_attention_header">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+            <TextView
+                android:id="@+id/home_type8_content_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/color_000000"
+                android:textSize="16sp"
+                android:text="快乐回家：快乐回家快乐回家快乐回家快乐回家快乐回家快乐回家快乐回家"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:ellipsize="end" />
+
+            <ImageView
+                android:id="@+id/home_type8_content_saojiao"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                android:layout_alignTop="@+id/home_type8_content_title"
+                android:layout_alignParentRight="true"
+                android:rotation="90"
+                android:src="@drawable/right_arrow_icon_night" />
+            <TextView
+                android:id="@+id/home_type8_content_play_nums"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="原创|32万次播放"
+                android:textSize="12sp"
+                android:textColor="@color/color_FF7E7C7C"
+                android:layout_marginTop="4dp"
+                android:layout_below="@+id/home_type8_content_title" />
+
+            <TextView
+                android:id="@+id/home_type8_content_publish_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2018年6月21日发布"
+                android:textSize="12sp"
+                android:textColor="@color/color_FF7E7C7C"
+                android:layout_marginTop="8dp"
+                android:layout_below="@+id/home_type8_content_play_nums" />
+
+            <TextView
+                android:id="@+id/home_type8_content_introduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="该剧讲述了一个快乐回家快乐回家快乐回家快乐回家快乐回家快乐回家快乐回家快乐回家快乐回家快乐回家快乐回家快乐回家的故事"
+                android:textSize="12sp"
+                android:textColor="@color/color_FF7E7C7C"
+                android:layout_marginTop="2dp"
+                android:lineSpacingMultiplier="1.2"
+                android:layout_below="@+id/home_type8_content_publish_time" />
+
+            <LinearLayout
+                android:id="@+id/ll_home_type8_content_dianzan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/home_type8_content_introduce">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/home_dianzan_btn_bg">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/details_like_icon"
+                        android:layout_marginRight="4dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="791"
+                        android:textSize="12sp"
+
+                        android:textColor="@color/color_000000"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/home_dianzan_btn_bg">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/details_like_icon"
+                        android:layout_marginRight="4dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分享朋友圈"
+                        android:textSize="12sp"
+
+                        android:textColor="@color/color_000000"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/home_dianzan_btn_bg">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/details_like_icon"
+                        android:layout_marginRight="4dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分享微信"
+                        android:textSize="12sp"
+                        android:textColor="@color/color_000000"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_home_type8_content_video_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/ll_home_type8_content_dianzan"
+                ></android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/tv_home_type8_content_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查看更多"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/rv_home_type8_content_video_list"
+                android:drawableRight="@drawable/seemore_all"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_home_type8_content_comment_list"
+                android:layout_below="@+id/tv_home_type8_content_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+    </ScrollView>
+
+    <include layout="@layout/home_layout_comment_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
