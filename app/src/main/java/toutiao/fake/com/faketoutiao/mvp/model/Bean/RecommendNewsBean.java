@@ -15,6 +15,16 @@ public class RecommendNewsBean {
     private int praiseNums;
     private String[] commmentContent;
 
+    private String videoUrl;
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
     public String getNewsContent() {
         return newsContent;
     }

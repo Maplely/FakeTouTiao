@@ -1,13 +1,12 @@
 package toutiao.fake.com.faketoutiao.ui.adpater;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -16,8 +15,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.mvp.model.Bean.RecommendNewsBean;
-import toutiao.fake.com.faketoutiao.utils.CircleImageView;
-import toutiao.fake.com.faketoutiao.utils.ImageLoader;
+import toutiao.fake.com.faketoutiao.ui.activity.HomeType8Activity;
+import toutiao.fake.com.faketoutiao.ui.holder.homeattention.RecommendViewHolderType6;
+import toutiao.fake.com.faketoutiao.ui.holder.homeattention.RecommendViewHolderType7;
+import toutiao.fake.com.faketoutiao.ui.holder.homeattention.RecommendViewHolderType8;
+import toutiao.fake.com.faketoutiao.ui.interfaces.OnItemClickListener;
 
 public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
@@ -37,6 +39,12 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     public HomeRecommendRvAdapter(Context context) {
         this.context = context;
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
     }
 
     public void setList(List<RecommendNewsBean> recommendNewsBeanList){
@@ -101,44 +109,45 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 view = LayoutInflater.from(context).inflate(R.layout.home_layout_item_type7,parent,false);
                 viewHolder = new RecommendViewHolderType7(view);
                 return viewHolder;
-//            case TYPE_8:
-//                view = LayoutInflater.from(context).inflate(R.layout.home_layout_item_type6,parent,false);
-//                viewHolder = new RecommendViewHolderType6(view);
-//                return viewHolder;
+            case TYPE_8:
+                view = LayoutInflater.from(context).inflate(R.layout.home_layout_item_type8,parent,false);
+                viewHolder = new RecommendViewHolderType8(view);
+                return viewHolder;
         }
         return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         if(holder instanceof RecommendViewHolderType1){
             RecommendViewHolderType1 viewHolderType1 = (RecommendViewHolderType1)holder;
-
         }else if(holder instanceof RecommendViewHolderType2){
             RecommendViewHolderType2 viewHolderType2 = (RecommendViewHolderType2)holder;
-
         }else if(holder instanceof RecommendViewHolderType3){
             RecommendViewHolderType3 viewHolderType3 = (RecommendViewHolderType3)holder;
-
         }else if(holder instanceof RecommendViewHolderType4){
             RecommendViewHolderType4 viewHolderType4 = (RecommendViewHolderType4)holder;
-
         }else if(holder instanceof RecommendViewHolderType5){
             RecommendViewHolderType5 viewHolderType5 = (RecommendViewHolderType5)holder;
-
         }else if(holder instanceof RecommendViewHolderType6){
             RecommendViewHolderType6 viewHolderType6 = (RecommendViewHolderType6)holder;
-            viewHolderType6.authorHeadNameTv.setText(recommendNewsBeanList.get(position).getAuthorHeadName());
-            viewHolderType6.newContentTv.setText(recommendNewsBeanList.get(position).getNewsContent());
-            ImageLoader.setBitmapFromUrl(recommendNewsBeanList.get(position).getAuthorHeadIcon(),viewHolderType6.headIconCiv);
-            ImageLoader.setBitmapFromUrl(recommendNewsBeanList.get(position).getAuthorHeadIcon(),viewHolderType6.oneNewsImageIv);
-
+            viewHolderType6.setHolder(position,recommendNewsBeanList,onItemClickListener);
         }else if(holder instanceof RecommendViewHolderType7){
             RecommendViewHolderType7 viewHolderType7 = (RecommendViewHolderType7)holder;
-            viewHolderType7.type7TitleTv.setText(recommendNewsBeanList.get(position).getNewsTitle());
-            viewHolderType7.authorHeadNameTv.setText(recommendNewsBeanList.get(position).getAuthorHeadName());
-            ImageLoader.setBitmapFromUrl(recommendNewsBeanList.get(position).getAuthorHeadIcon(),viewHolderType7.headIconCiv);
-            ImageLoader.setBitmapFromUrl(recommendNewsBeanList.get(position).getAuthorHeadIcon(),viewHolderType7.imageIv);
+            viewHolderType7.setHolder(position,recommendNewsBeanList,onItemClickListener);
+        }else if(holder instanceof RecommendViewHolderType8){
+            RecommendViewHolderType8 viewHolderType8 = (RecommendViewHolderType8)holder;
+            viewHolderType8.setHolder(position,recommendNewsBeanList,onItemClickListener);
+            viewHolderType8.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, HomeType8Activity.class);
+                    intent.putExtra(HomeType8Activity.VIDEOURL,recommendNewsBeanList.get(position).getVideoUrl());
+                    intent.putExtra(HomeType8Activity.AUTHORICON,recommendNewsBeanList.get(position).getAuthorHeadIcon());
+                    context.startActivity(intent);
+                }
+            });
+
 
         }
     }
@@ -149,13 +158,9 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
 
-
-
     public class RecommendViewHolderType1 extends RecyclerView.ViewHolder{
-
         @BindView(R.id.home_news_type1_title_tv)
         TextView type1TitleTv;
-
         public RecommendViewHolderType1 (View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -164,10 +169,8 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
 
     public class RecommendViewHolderType2 extends RecyclerView.ViewHolder{
-
         @BindView(R.id.home_news_type2_title_tv)
         TextView type2TitleTv;
-
         public RecommendViewHolderType2 (View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -176,10 +179,8 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
 
     public class RecommendViewHolderType3 extends RecyclerView.ViewHolder{
-
         @BindView(R.id.home_news_type3_title_tv)
         TextView type3TitleTv;
-
         public RecommendViewHolderType3 (View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -188,68 +189,20 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
 
     public class RecommendViewHolderType4 extends RecyclerView.ViewHolder{
-
         @BindView(R.id.home_news_type4_title_tv)
         TextView type3TitleTv;
-
         public RecommendViewHolderType4 (View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
     }
 
-
     public class RecommendViewHolderType5 extends RecyclerView.ViewHolder{
-
         @BindView(R.id.home_news_type5_title_tv)
         TextView type3TitleTv;
-
         public RecommendViewHolderType5 (View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-        }
-    }
-
-
-    public class RecommendViewHolderType6 extends RecyclerView.ViewHolder{
-
-//        @BindView(R.id.tv_home_item_head_name)
-        TextView authorHeadNameTv;
-
-//        @BindView(R.id.tv_home_type6_cotent)
-        TextView newContentTv;
-
-//        @BindView(R.id.civ_home_item_head_icon)
-        CircleImageView headIconCiv;
-
-        ImageView oneNewsImageIv;
-
-        GridView moreNewsImageGv;
-        public RecommendViewHolderType6(View itemView) {
-            super(itemView);
-            authorHeadNameTv = itemView.findViewById(R.id.tv_home_item_head_name);
-            newContentTv = itemView.findViewById(R.id.tv_home_type6_cotent);
-            headIconCiv = itemView.findViewById(R.id.civ_home_item_head_icon);
-            oneNewsImageIv = itemView.findViewById(R.id.iv_home_type6_one_image);
-            moreNewsImageGv = itemView.findViewById(R.id.gv_home_type6_more_image);
-        }
-    }
-
-    public class RecommendViewHolderType7 extends RecyclerView.ViewHolder {
-
-        TextView type7TitleTv;
-        TextView authorHeadNameTv;
-        CircleImageView headIconCiv;
-        ImageView oneNewsImageIv;
-        ImageView imageIv;
-
-        public RecommendViewHolderType7(View itemView) {
-            super(itemView);
-            type7TitleTv = itemView.findViewById(R.id.tv_home_type7_news_title);
-            authorHeadNameTv = itemView.findViewById(R.id.tv_home_item_head_name);
-            headIconCiv = itemView.findViewById(R.id.civ_home_item_head_icon);
-            oneNewsImageIv = itemView.findViewById(R.id.iv_home_type6_one_image);
-            imageIv = itemView.findViewById(R.id.iv_home_type7_image);
         }
     }
 }

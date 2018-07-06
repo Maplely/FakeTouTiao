@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical">
+        <toutiao.fake.com.faketoutiao.utils.CircleImageView
+            android:id="@+id/civ_home_attention_header_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_home_attention_header_isvip"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/home_layout_item_circle"
+            android:layout_alignBottom="@+id/civ_home_attention_header_icon"
+            android:layout_alignRight="@+id/civ_home_attention_header_icon"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/iv_home_attention_header_isvip"
+                android:layout_width="9dp"
+                android:layout_height="9dp"
+                android:src="@drawable/all_newv_small"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_home_attention_header_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="好戏看不停"
+            android:textColor="@color/color_000000"
+            android:layout_alignTop="@+id/civ_home_attention_header_icon"
+            android:layout_toRightOf="@+id/civ_home_attention_header_icon"
+            android:layout_marginLeft="15dp"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_home_attention_header_time_and_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.6万粉丝"
+            android:layout_below="@+id/tv_home_attention_header_name"
+            android:layout_alignLeft="@+id/tv_home_attention_header_name"
+            android:layout_marginTop="2dp"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/tv_home_attention_header_isattention"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="关注"
+            android:background="@drawable/home_attention_btn_bg"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textSize="12sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/color_FFFFFF"/>
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -10,7 +10,7 @@ import toutiao.fake.com.faketoutiao.mvp.model.HomeAttentionModel;
 public class HomeAttentionPresent implements HomeAttentionContract.Present {
     private HomeAttentionContract.View mView;
     private HomeAttentionModel mModel;
-    private final String headImages[] = {"https://timgsa.baidu" +
+    private final String[] headImages= {"https://timgsa.baidu" +
             ".com/timg?image&quality=80&size=b9999_10000&sec=1528894844079&di=2acb2ea382dbc7358ef2acbcbcb1c0e4&imgtype=0" +
             "&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F0b55b319ebc4b745a19d9333c5fc1e178a82158d.jpg"
             , "https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1528884759" +
@@ -40,6 +40,7 @@ public class HomeAttentionPresent implements HomeAttentionContract.Present {
         RecommendNewsBean recommendNewsBean4;
         RecommendNewsBean recommendNewsBean5;
         RecommendNewsBean recommendNewsBean6;
+        RecommendNewsBean recommendNewsBean7;
 
         int m = 0;
         for (int i = 0; i < 5; i++) {
@@ -58,6 +59,7 @@ public class HomeAttentionPresent implements HomeAttentionContract.Present {
             recommendNewsBean1.setAuthorHeadIcon(headImages[1]);
             recommendNewsBean1.setAuthorHeadName("小毛驴");
             recommendNewsBean1.setNewsFormType(6);
+            recommendNewsBean1.setNewsImages(headImages);
             recommendNewsBeansList.add(recommendNewsBean1);
             m++;
 
@@ -75,7 +77,8 @@ public class HomeAttentionPresent implements HomeAttentionContract.Present {
             recommendNewsBean2.setNewsContent(m+"什么是快乐？赢球；什么更快乐？在点球大战中赢球。");
             recommendNewsBean2.setAuthorHeadIcon(headImages[2]);
             recommendNewsBean2.setAuthorHeadName("我有一颗不老心");
-            recommendNewsBean2.setNewsFormType(6);
+            recommendNewsBean2.setVideoUrl("http://jzvd.nathen.cn/c6e3dc12a1154626b3476d9bf3bd7266/6b56c5f0dc31428083757a45764763b0-5287d2089db37e62345123a1be272f8b.mp4");
+            recommendNewsBean2.setNewsFormType(8);
             recommendNewsBeansList.add(recommendNewsBean2);
             m++;
 
@@ -95,6 +98,16 @@ public class HomeAttentionPresent implements HomeAttentionContract.Present {
             recommendNewsBean3.setAuthorHeadName("菠萝菠萝蜜");
             recommendNewsBean3.setNewsFormType(6);
             recommendNewsBeansList.add(recommendNewsBean3);
+            m++;
+
+            recommendNewsBean7 = new RecommendNewsBean();
+            recommendNewsBean7.setNewsComentNums(100 + m);
+            recommendNewsBean7.setNewsContent(m+"什么是快乐？赢球；什么更快乐？在点球大战中赢球。");
+            recommendNewsBean7.setAuthorHeadIcon(headImages[2]);
+            recommendNewsBean7.setAuthorHeadName("我有一颗不老心");
+            recommendNewsBean7.setVideoUrl("http://jzvd.nathen.cn/342a5f7ef6124a4a8faf00e738b8bee4/cf6d9db0bd4d41f59d09ea0a81e918fd-5287d2089db37e62345123a1be272f8b.mp4");
+            recommendNewsBean7.setNewsFormType(8);
+            recommendNewsBeansList.add(recommendNewsBean7);
             m++;
 
             recommendNewsBean4 = new RecommendNewsBean();
