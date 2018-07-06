@@ -7,6 +7,12 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.utils.MetricUtils;
@@ -14,7 +20,7 @@ import toutiao.fake.com.faketoutiao.utils.MetricUtils;
 /**
  * Created by lihaitao on 2018/7/3.
  */
-public class MicroCancelDialog extends DialogFragment {
+public class MicroCancelDialog extends DialogFragment implements View.OnClickListener {
     private static MicroCancelDialog mCancelDialog;
     private static String WIDTH = "width";
     private static String HIGH = "high";
@@ -22,6 +28,10 @@ public class MicroCancelDialog extends DialogFragment {
     int heightOffset = 0;
     int widthOffset = 0;
     private boolean isUp = true;
+    private LayoutInflater mFrom;
+    private LinearLayout mPage1;
+    private LinearLayout mPage2;
+    private View mRoot;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,8 +56,14 @@ public class MicroCancelDialog extends DialogFragment {
         int with = arguments.getInt(WIDTH);
         int high = arguments.getInt(HIGH);
         //处理dialog位置
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.micro_content_cancal_dialog, null, false);
-        view.measure(0, 0);
+        mFrom = LayoutInflater.from(getActivity());
+        mRoot = mFrom.inflate(R.layout.micro_content_cancal_dialog, null, false);
+        mPage1 = (LinearLayout) mRoot.findViewById(R.id.micro_cancel_dialog_ll_page1);
+        mPage2 = (LinearLayout) mRoot.findViewById(R.id.micro_cancel_dialog_ll_page2);
+        ((RelativeLayout) mRoot.findViewById(R.id.micro_cancel_dialog_next)).setOnClickListener(this);
+        ((ImageView) mRoot.findViewById(R.id.micro_cacel_dialog_iv)).setOnClickListener(this);
+        ((TextView) mRoot.findViewById(R.id.micro_cacel_dialog_tv)).setOnClickListener(this);
+        mRoot.measure(0, 0);
         //判断dialog的位置
         int screentHeight = MetricUtils.getScreentHeight(getActivity());
         if (high > screentHeight / 2) {
@@ -56,18 +72,16 @@ public class MicroCancelDialog extends DialogFragment {
             isUp = false;
         } else {
             //dialog在屏幕上方
-            heightOffset = view.getMeasuredHeight() - MetricUtils.getStatusBarHeight(getActivity());
+            heightOffset = mRoot.getMeasuredHeight() - MetricUtils.getStatusBarHeight(getActivity());
             isUp = true;
         }
-        widthOffset = -300;
-        with = with - view.getMeasuredWidth() + widthOffset;
-        high = high - view.getMeasuredHeight() + heightOffset;
+        with = with - mRoot.getMeasuredWidth() + widthOffset;
+        high = high - mRoot.getMeasuredHeight() + heightOffset;
         with = Math.max(0, with);
         high = Math.max(0, high);
         //~~~~~
-
         Dialog dialog = new Dialog(getActivity());
-        dialog.setContentView(view);
+        dialog.setContentView(mRoot);
         dialog.setCanceledOnTouchOutside(true);
         WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
         params.gravity = Gravity.LEFT | Gravity.TOP;
@@ -80,6 +94,28 @@ public class MicroCancelDialog extends DialogFragment {
             dialog.getWindow().setWindowAnimations(R.style.Dialog_in_down_anim);
         }
         return dialog;
+
+    }
+
+    /**
+     * 处理点击事件
+     */
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.micro_cancel_dialog_next) {
+            //page1
+            Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.dialog_anim_left);
+            mPage1.setVisibility(View.GONE);
+            mPage2.setVisibility(View.VISIBLE);
+            mPage2.setAnimation(animation);
+        } else if (id == R.id.micro_cacel_dialog_iv || id == R.id.micro_cacel_dialog_tv) {
+            //page2
+            Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.dialog_anim_right);
+            mPage2.setVisibility(View.GONE);
+            mPage1.setVisibility(View.VISIBLE);
+            mPage1.startAnimation(animation);
+        }
 
     }
 }
