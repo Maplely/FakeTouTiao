@@ -3,17 +3,15 @@ package toutiao.fake.com.faketoutiao.ui.dialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
-import android.support.transition.Scene;
-import android.support.transition.Transition;
-import android.support.transition.TransitionInflater;
-import android.support.transition.TransitionManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import toutiao.fake.com.faketoutiao.R;
@@ -22,7 +20,7 @@ import toutiao.fake.com.faketoutiao.utils.MetricUtils;
 /**
  * Created by lihaitao on 2018/7/3.
  */
-public class MicroCancelDialog extends DialogFragment  {
+public class MicroCancelDialog extends DialogFragment  implements View.OnClickListener{
     private static MicroCancelDialog mCancelDialog;
     private static String WIDTH = "width";
     private static String HIGH = "high";
@@ -30,11 +28,9 @@ public class MicroCancelDialog extends DialogFragment  {
     int heightOffset = 0;
     int widthOffset = 0;
     private boolean isUp = true;
-    private Scene mScene1;
-    private Scene mScene2;
-    private Transition mLeft;
-    private Transition mRight;
     private LayoutInflater mFrom;
+    private LinearLayout mPage1;
+    private LinearLayout mPage2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,47 +57,11 @@ public class MicroCancelDialog extends DialogFragment  {
         //处理dialog位置
         mFrom = LayoutInflater.from(getActivity());
         View view = mFrom.inflate(R.layout.micro_content_cancal_dialog, null, false);
-
-        ViewGroup root = ((ViewGroup) view.findViewById(R.id.micro_dialog_root));
-        //设置转场动画
-        mScene2 = Scene.getSceneForLayout(root, R.layout.micro_cancel_dialog_page2, getActivity());
-        mScene1 = Scene.getSceneForLayout(root, R.layout.micro_cancel_dialog_page1, getActivity());
-        mLeft = TransitionInflater.from(getActivity()).inflateTransition(R.transition
-            .micro_cancel_dialog_left);
-        mRight = TransitionInflater.from(getActivity()).inflateTransition(R.transition
-            .micro_cancel_dialog_right);
-
-        TransitionManager.go(mScene1);
-        root.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int
-                oldRight, int oldBottom) {
-                View view_c = ((FrameLayout) v).getChildAt(0);
-                int id = view_c.getId();
-                if(id==R.id.micro_cancel_dialog_ll_page1){
-                    view_c.findViewById(R.id.micro_cancel_dialog_next).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            TransitionManager.go(mScene2,mRight);
-                        }
-                    });
-                }else{
-                    ((ImageView) view_c.findViewById(R.id.micro_cacel_dialog_iv)).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            TransitionManager.go(mScene1,mLeft);
-                        }
-                    });
-                    ((TextView) view_c.findViewById(R.id.micro_cacel_dialog_tv)).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            TransitionManager.go(mScene1,mLeft);
-                        }
-                    });
-                }
-
-            }
-        });
+        mPage1 = (LinearLayout) view.findViewById(R.id.micro_cancel_dialog_ll_page1);
+        mPage2 = (LinearLayout) view.findViewById(R.id.micro_cancel_dialog_ll_page2);
+        ((RelativeLayout) view.findViewById(R.id.micro_cancel_dialog_next)).setOnClickListener(this);
+        ((ImageView) view.findViewById(R.id.micro_cacel_dialog_iv)).setOnClickListener(this);
+        ((TextView) view.findViewById(R.id.micro_cacel_dialog_tv)).setOnClickListener(this);
         view.measure(0, 0);
         //判断dialog的位置
         int screentHeight = MetricUtils.getScreentHeight(getActivity());
@@ -119,7 +79,6 @@ public class MicroCancelDialog extends DialogFragment  {
         with = Math.max(0, with);
         high = Math.max(0, high);
         //~~~~~
-
         Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(view);
         dialog.setCanceledOnTouchOutside(true);
@@ -134,6 +93,29 @@ public class MicroCancelDialog extends DialogFragment  {
             dialog.getWindow().setWindowAnimations(R.style.Dialog_in_down_anim);
         }
         return dialog;
+
+    }
+
+    /**
+     * 处理点击事件
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if(id==R.id.micro_cancel_dialog_next){
+            //page1
+            Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.dialog_anim_left);
+            mPage1.setVisibility(View.GONE);
+            mPage2.setVisibility(View.VISIBLE);
+            mPage2.startAnimation(animation);
+        }else if(id==R.id.micro_cacel_dialog_iv||id==R.id.micro_cacel_dialog_tv){
+            //page2
+            Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.dialog_anim_right);
+            mPage2.setVisibility(View.GONE);
+            mPage1.setVisibility(View.VISIBLE);
+            mPage1.startAnimation(animation);
+        }
 
     }
 }
