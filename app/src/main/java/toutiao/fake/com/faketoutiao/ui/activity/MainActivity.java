@@ -1,7 +1,6 @@
 package toutiao.fake.com.faketoutiao.ui.activity;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
