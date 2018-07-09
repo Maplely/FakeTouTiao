@@ -1,6 +1,7 @@
 package toutiao.fake.com.faketoutiao.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
@@ -15,10 +16,11 @@ import butterknife.ButterKnife;
 import cn.jzvd.JZVideoPlayer;
 import toutiao.fake.com.faketoutiao.R;
 import toutiao.fake.com.faketoutiao.mvp.contract.MainContract;
-import toutiao.fake.com.faketoutiao.ui.fragment.MicroTiaoFragment;
 import toutiao.fake.com.faketoutiao.ui.fragment.HomeFragment;
+import toutiao.fake.com.faketoutiao.ui.fragment.MicroTiaoFragment;
 import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment1;
 import toutiao.fake.com.faketoutiao.ui.fragment.TestFragment3;
+import toutiao.fake.com.faketoutiao.utils.Util;
 
 public class MainActivity extends FragmentActivity implements MainContract.IView {
     @BindView(R.id.content)
@@ -34,6 +36,7 @@ public class MainActivity extends FragmentActivity implements MainContract.IView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Util.setStatusColor(this, getResources().getColor(R.color.color_F8EB4248));
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initView();
