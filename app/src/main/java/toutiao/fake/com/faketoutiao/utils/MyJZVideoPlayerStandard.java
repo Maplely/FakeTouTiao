@@ -54,11 +54,11 @@ public class MyJZVideoPlayerStandard extends JZVideoPlayerStandard {
     }
 
     public void setOnActivityListener(OnActivityListener onActivityListener){
-        onActivityListener = onActivityListener;
+        this.onActivityListener = onActivityListener;
     }
 
     public interface OnActivityListener{
-        void onActivityFinish();
+        void onActivityFinish(boolean isActivity);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class MyJZVideoPlayerStandard extends JZVideoPlayerStandard {
             backButton.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onActivityListener.onActivityFinish();
+                    onActivityListener.onActivityFinish(isActivity);
                 }
             });
         }

@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +33,6 @@ public class HomeFragment extends BaseFragment {
     ViewPager homeContentVp;
 
     private List<Fragment> fragmentList;
-    private HomeRecommendFragment fragment;
     private HomeViewPagerAdapter homeVpAdapter;
     private String[] tabTitles;
 
@@ -93,7 +92,7 @@ public class HomeFragment extends BaseFragment {
             }
         }
 
-        homeVpAdapter = new HomeViewPagerAdapter(getFragmentManager());
+        homeVpAdapter = new HomeViewPagerAdapter(getChildFragmentManager());
         homeContentVp.setAdapter(homeVpAdapter);
         homeTabTl.setupWithViewPager(homeContentVp);
     }
@@ -116,7 +115,7 @@ public class HomeFragment extends BaseFragment {
     }
 
 
-    class HomeViewPagerAdapter extends FragmentPagerAdapter{
+    class HomeViewPagerAdapter extends FragmentStatePagerAdapter{
 
 
         public HomeViewPagerAdapter(FragmentManager fm) {
