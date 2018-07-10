@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/tv_item_video_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="哈哈哈哈，白天黑夜白天黑夜花花花苹果香蕉大鸭梨，葡萄蛋糕，哈哈哈哈哈哈"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@color/color_FF141414"
+        android:lineSpacingMultiplier="1.1"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/iv_home_type8_item_video_image" />
+    <TextView
+        android:id="@+id/tv_item_video_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_item_video_title"
+        android:layout_marginTop="5dp"
+        android:textSize="12sp"
+        android:text="炎炎的世界梦想"/>
+
+    <TextView
+        android:id="@+id/tv_item_broad_nums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_item_video_author"
+        android:layout_alignBottom="@+id/tv_item_video_author"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"
+        android:text="190万次播放"/>
+
+    <ImageView
+        android:id="@+id/iv_home_type8_item_video_image"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/color_FF5A72F6"/>
+
+</RelativeLayout>

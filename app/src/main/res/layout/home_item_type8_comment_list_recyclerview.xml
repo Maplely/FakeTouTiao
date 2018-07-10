@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+
+    <toutiao.fake.com.faketoutiao.utils.CircleImageView
+        android:id="@+id/civ_home_comment_head_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/color_000000"/>
+
+    <TextView
+        android:id="@+id/tv_home_comment_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="手机用户7973686788"
+        android:textColor="@color/color_3F51B5"
+        android:layout_toRightOf="@+id/civ_home_comment_head_icon" />
+
+    <ImageView
+        android:id="@+id/iv_home_comment_dianzan"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/details_like_icon"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/tv_home_comment_dianzan_nums"/>
+    <TextView
+        android:id="@+id/tv_home_comment_dianzan_nums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/tv_home_comment_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="为什么越来越多的人喜欢淘宝？？？"
+        android:textColor="@color/color_FF141414"
+        android:textSize="16sp"
+        android:layout_alignLeft="@+id/tv_home_comment_user_name"
+        android:layout_below="@+id/tv_home_comment_user_name"
+        android:layout_marginTop="10dp"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_home_comment_user_name"
+        android:layout_below="@+id/tv_home_comment_content"
+        android:layout_centerVertical="true">
+
+
+    <TextView
+        android:id="@+id/tv_home_comment_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6-12 18:50 · "
+        android:textColor="@color/color_FF141414"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/tv_home_comment_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="回复"
+        android:textColor="@color/color_FF141414"
+        android:textSize="12sp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/tv_home_comment_time" />
+
+    <TextView
+        android:id="@+id/tv_home_comment_reply_nums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3回复"
+        android:textColor="@color/color_FF141414"
+        android:textSize="12sp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="8dp"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:paddingRight="8dp"
+        android:layout_toRightOf="@+id/tv_home_comment_time"
+        android:background="@drawable/home_type8_content_bottom_bg"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

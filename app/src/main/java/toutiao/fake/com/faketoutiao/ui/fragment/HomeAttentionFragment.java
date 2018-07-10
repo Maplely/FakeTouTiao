@@ -62,7 +62,6 @@ public class HomeAttentionFragment extends BaseFragment implements HomeAttention
         homeRecommendRv.setLayoutManager(new LinearLayoutManager(getContext()));
         homeRecommendRv.setAdapter(recommendRvAdapter);
         homeRecommendRv.addItemDecoration(new SimpleDecoration());
-
         sensorManager = (SensorManager)getActivity().getSystemService(SENSOR_SERVICE);
         sensorEventListener = new JZVideoPlayer.JZAutoFullscreenListener();
 
