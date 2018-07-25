@@ -26,7 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.HomeType8Activity"></activity>
+        <activity android:name=".ui.activity.HomeType8Activity" />
+        <activity android:name=".ui.activity.HomeChannelSelectActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package toutiao.fake.com.faketoutiao.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -19,6 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import toutiao.fake.com.faketoutiao.R;
+import toutiao.fake.com.faketoutiao.ui.activity.HomeChannelSelectActivity;
 import toutiao.fake.com.faketoutiao.ui.base.BaseFragment;
 
 /**
@@ -110,6 +112,9 @@ public class HomeFragment extends BaseFragment {
             case R.id.home_publish_ll:
                 Toast.makeText(getContext(),"点击发布",Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.home_add_channel:
+                Intent intent = new Intent(getActivity(), HomeChannelSelectActivity.class);
+                startActivity(intent);
             default: break;
         }
     }

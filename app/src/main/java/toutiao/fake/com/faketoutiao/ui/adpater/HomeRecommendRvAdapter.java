@@ -24,6 +24,7 @@ import toutiao.fake.com.faketoutiao.ui.interfaces.OnItemClickListener;
 public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private Context context;
+    private static final int TYPE_HEAD = -1;
     private static final int TYPE_1 = 1;
     private static final int TYPE_2 = 2;
     private static final int TYPE_3 = 3;
@@ -34,6 +35,9 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     private static final int TYPE_8 = 8;
     private static final int TYPE_FOOTER = 0;
     private List<RecommendNewsBean> recommendNewsBeanList;
+
+    private View headView;
+    private View footerView;
 
     private boolean isOneImage;
 
@@ -50,6 +54,14 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     public void setList(List<RecommendNewsBean> recommendNewsBeanList){
         this.recommendNewsBeanList = recommendNewsBeanList;
         notifyDataSetChanged();
+    }
+
+    public void addHeadView(View headView){
+        this.headView = headView;
+    }
+
+    public void addFooterView(View footerView){
+        this.footerView = footerView;
     }
 
     @Override
@@ -72,7 +84,15 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             case 8:
                 return TYPE_8;
         }
-        return TYPE_FOOTER;
+        if(headView != null && position ==0){
+            return TYPE_HEAD;
+        }
+        if(footerView != null){
+            if(position == (recommendNewsBeanList != null?recommendNewsBeanList.size():0) + (headView != null?1:0)){
+                return TYPE_FOOTER;
+            }
+        }
+        return -2;
     }
 
     @NonNull
@@ -154,7 +174,7 @@ public class HomeRecommendRvAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     @Override
     public int getItemCount() {
-        return recommendNewsBeanList != null ?recommendNewsBeanList.size() :0;
+        return (headView!=null?1:0) + (recommendNewsBeanList != null ?recommendNewsBeanList.size() :0) +(footerView != null ?1 :0);
     }
 
 
